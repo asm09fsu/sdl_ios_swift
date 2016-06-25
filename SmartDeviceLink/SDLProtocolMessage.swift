@@ -44,7 +44,7 @@ public class SDLProtocolMessage {
         self.payload = payload
     }
     
-    public class func create(with header: SDLProtocolHeader, _ payload: Data? = nil) -> SDLProtocolMessage? {
+    public class func message(with header: SDLProtocolHeader, _ payload: Data? = nil) -> SDLProtocolMessage? {
         if header.version == 1 {
             return SDLV1ProtocolMessage(header: header, payload: payload)
         } else if header.version >= 2 {

@@ -57,9 +57,8 @@ public class SDLProtocol: SDLTransportDelegate {
     }
     
     public func startSession(for type: SDLServiceType) {
-//        send(data: Data(bytes: [0x10, 0x07, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00]), for: type)
         if let header = SDLProtocolHeader.header(for: type, sessionID: sdl_getSessionID(for: type)),
-            let message = SDLProtocolMessage.create(with: header)  {
+            let message = SDLProtocolMessage.message(with: header)  {
                 send(data: message.data, for: type)
         }
     }
