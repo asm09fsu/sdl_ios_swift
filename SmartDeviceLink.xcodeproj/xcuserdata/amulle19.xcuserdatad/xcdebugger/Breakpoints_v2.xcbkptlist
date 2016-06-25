@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartDeviceLink/SDLTCPTransport.swift"
-            timestampString = "488525654.916285"
+            timestampString = "488567392.060075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartDeviceLink/SDLTCPTransport.swift"
-            timestampString = "488531307.159994"
+            timestampString = "488568569.062396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "openSocket(host:port:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,27 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartDeviceLink/SDLTCPTransport.swift"
-            timestampString = "488531307.159994"
+            timestampString = "488567392.060075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
             endingLineNumber = "80"
-            landmarkName = "openSocket(host:port:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SmartDeviceLink/SDLTCPTransport.swift"
-            timestampString = "488531307.159994"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
             landmarkName = "openSocket(host:port:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartDeviceLink/SDLTCPTransport.swift"
-            timestampString = "488531307.159994"
+            timestampString = "488567392.060075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -118,17 +102,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartDeviceLink/SDLProtocol.swift"
+            timestampString = "488567520.230813"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "send(data:for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartDeviceLink/SDLProtocol.swift"
-            timestampString = "488537664.14875"
+            timestampString = "488567520.230813"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "processPendingMessages()"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "startSession(for:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SmartDeviceLink.SDLProtocol.startSession (for : SmartDeviceLink.SDLServiceType) -&gt; ()"
+                  moduleName = "SmartDeviceLink"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amulle19/Documents/Projects/Github/asm09fsu/SmartDeviceLink/SmartDeviceLink/SDLProtocol.swift"
+                  timestampString = "488567308.386087"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SmartDeviceLink.SDLProtocol.startSession (for : SmartDeviceLink.SDLServiceType) -&gt; ()"
+                  moduleName = "SmartDeviceLink"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amulle19/Documents/Projects/Github/asm09fsu/SmartDeviceLink/SmartDeviceLink/SDLProtocol.swift"
+                  timestampString = "488567308.388282"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "113">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

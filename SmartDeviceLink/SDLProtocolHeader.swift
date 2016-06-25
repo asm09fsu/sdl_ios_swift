@@ -9,10 +9,15 @@
 import Foundation
 
 public class SDLProtocolHeader {
-    private var _size: UInt = 0
+    public struct Frame {
+        public var type: SDLFrameType = .control
+        public var data: SDLFrameData = .control
+    }
+    
+    private var _size: Int = 0
     private var _version: UInt8 = 0
     
-    public var size: UInt {
+    public var size: Int {
         return _size
     }
     
@@ -20,11 +25,39 @@ public class SDLProtocolHeader {
         return _version
     }
     
+    public var frame: Frame = Frame()
+    public var serviceType: SDLServiceType = .control
+    public var sessionID: UInt8 = 0
     public var bytesInPayload: UInt32 = 0
+    public var encrypted = false
     
-    init(size: UInt, version: UInt8) {
+    public var data: Data? {
+        return nil
+    }
+    
+    init(size: Int, version: UInt8) {
         _size = size
         _version = version
+    }
+    
+    public class func header(for type: SDLServiceType, sessionID: UInt8) -> SDLProtocolHeader? {
+        var header = self.header(for: SDLGlobals.protocolVersion)
+        
+        switch type {
+            case .rpc:
+                header = SDLV1ProtocolHeader()
+            default: break
+        }
+        
+        header?.frame.data = .startSession
+        header?.serviceType = type
+        header?.sessionID = sessionID
+        
+        return header
+    }
+    
+    public class func header(for version: UInt) -> SDLProtocolHeader? {
+        return header(for: UInt8(version))
     }
     
     public class func header(for version: UInt8) -> SDLProtocolHeader? {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA27396F1D1EDBF800631207 /* SDLGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27396E1D1EDBF800631207 /* SDLGlobals.swift */; };
+		DA2739711D1EE74D00631207 /* SDLV1ProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2739701D1EE74D00631207 /* SDLV1ProtocolMessage.swift */; };
+		DA2739731D1EE8A000631207 /* SDLV2ProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2739721D1EE8A000631207 /* SDLV2ProtocolMessage.swift */; };
 		DA2D6ED91D13D71E00AF0A44 /* SDLTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D6ED81D13D71E00AF0A44 /* SDLTransport.swift */; };
 		DA2D6EDB1D13DE9700AF0A44 /* SDLProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D6EDA1D13DE9700AF0A44 /* SDLProxy.swift */; };
 		DA2D6EDD1D13E06300AF0A44 /* SDLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D6EDC1D13E06300AF0A44 /* SDLProtocol.swift */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA27396E1D1EDBF800631207 /* SDLGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLGlobals.swift; sourceTree = "<group>"; };
+		DA2739701D1EE74D00631207 /* SDLV1ProtocolMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLV1ProtocolMessage.swift; sourceTree = "<group>"; };
+		DA2739721D1EE8A000631207 /* SDLV2ProtocolMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLV2ProtocolMessage.swift; sourceTree = "<group>"; };
 		DA2D6ED81D13D71E00AF0A44 /* SDLTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLTransport.swift; sourceTree = "<group>"; };
 		DA2D6EDA1D13DE9700AF0A44 /* SDLProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLProxy.swift; sourceTree = "<group>"; };
 		DA2D6EDC1D13E06300AF0A44 /* SDLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLProtocol.swift; sourceTree = "<group>"; };
@@ -104,12 +110,15 @@
 				DAB4AA441D1369C100837510 /* SmartDeviceLink.h */,
 				DA2D6EDA1D13DE9700AF0A44 /* SDLProxy.swift */,
 				DAB4AA4E1D1369F300837510 /* SDLDebugTool.swift */,
+				DA27396E1D1EDBF800631207 /* SDLGlobals.swift */,
 				DAB4AA4C1D1369DD00837510 /* SDLHexUtility.swift */,
 				DA2D6EDC1D13E06300AF0A44 /* SDLProtocol.swift */,
-				DAC304071D1E715D00DE641B /* SDLProtocolMessage.swift */,
 				DAC304091D1E729300DE641B /* SDLProtocolHeader.swift */,
 				DAC3040B1D1E735800DE641B /* SDLV1ProtocolHeader.swift */,
 				DAC3040D1D1E736400DE641B /* SDLV2ProtocolHeader.swift */,
+				DAC304071D1E715D00DE641B /* SDLProtocolMessage.swift */,
+				DA2739701D1EE74D00631207 /* SDLV1ProtocolMessage.swift */,
+				DA2739721D1EE8A000631207 /* SDLV2ProtocolMessage.swift */,
 				DAB4AACC1D138F2100837510 /* SDLTCPTransport.swift */,
 				DAB4AAD01D13913A00837510 /* SDLTransportDelegate.swift */,
 				DA2D6ED81D13D71E00AF0A44 /* SDLTransport.swift */,
@@ -253,6 +262,7 @@
 				DAC3040E1D1E736400DE641B /* SDLV2ProtocolHeader.swift in Sources */,
 				DA2D6EDB1D13DE9700AF0A44 /* SDLProxy.swift in Sources */,
 				DA2D6EDD1D13E06300AF0A44 /* SDLProtocol.swift in Sources */,
+				DA2739731D1EE8A000631207 /* SDLV2ProtocolMessage.swift in Sources */,
 				DAB4AA4D1D1369DD00837510 /* SDLHexUtility.swift in Sources */,
 				DAB4AA4F1D1369F300837510 /* SDLDebugTool.swift in Sources */,
 				DAB4AACD1D138F2100837510 /* SDLTCPTransport.swift in Sources */,
@@ -260,6 +270,8 @@
 				DAC304081D1E715D00DE641B /* SDLProtocolMessage.swift in Sources */,
 				DAB4AAD11D13913A00837510 /* SDLTransportDelegate.swift in Sources */,
 				DA2D6ED91D13D71E00AF0A44 /* SDLTransport.swift in Sources */,
+				DA27396F1D1EDBF800631207 /* SDLGlobals.swift in Sources */,
+				DA2739711D1EE74D00631207 /* SDLV1ProtocolMessage.swift in Sources */,
 				DAC3040C1D1E735800DE641B /* SDLV1ProtocolHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
