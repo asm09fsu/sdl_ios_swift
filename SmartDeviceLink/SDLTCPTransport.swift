@@ -88,9 +88,8 @@ public class SDLTCPTransport: SDLTransport {
                              ai_next: nil)
         var infoPointer = UnsafeMutablePointer<addrinfo>(nil)
         
-        let hostBytes = host?.withCString { return $0 }
-        let portBytes = port?.withCString { return $0 }
-        
+        let hostBytes = host?.cString(using: .utf8)
+        let portBytes = port?.cString(using: .utf8)
         
         var status = getaddrinfo(hostBytes, portBytes, &hints, &infoPointer)
         
@@ -106,7 +105,53 @@ public class SDLTCPTransport: SDLTransport {
             
             return socketId
         } else {
-            print("error getting address info: \(gai_strerror(status).pointee)")
+            switch status {
+                case EAI_ADDRFAMILY:
+                    print("address family for hostname not supported")
+                    break
+                case EAI_AGAIN:
+                    print("temporary failure in name resolution")
+                    break
+                case EAI_BADFLAGS:
+                    print("invalid value for ai_flags")
+                    break
+                case EAI_FAIL:
+                    print("non-recoverable failure in name resolution")
+                    break
+                case EAI_FAMILY:
+                    print("ai_family not supported")
+                    break
+                case EAI_MEMORY:
+                    print("memory allocation failure")
+                    break
+                case EAI_NODATA:
+                    print("no address associated with hostname")
+                    break
+                case EAI_NONAME:
+                    print("hostname nor servname provided, or not known")
+                    break
+                case EAI_SERVICE:
+                    print("ervname not supported for ai_socktype")
+                    break
+                case EAI_SOCKTYPE:
+                    print("ai_socktype not supported")
+                    break
+                case EAI_SYSTEM:
+                    print("system error returned in errno")
+                    break
+                case EAI_BADHINTS:
+                    print("invalid value for hints")
+                    break
+                case EAI_PROTOCOL:
+                    print("resolved protocol is unknown")
+                    break
+                case EAI_OVERFLOW:
+                    print("argument buffer overflow")
+                    break
+                default:
+                    print("unknown error")
+                    break
+            }
         }
         
         freeaddrinfo(infoPointer)
