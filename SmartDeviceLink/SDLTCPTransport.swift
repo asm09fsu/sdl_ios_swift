@@ -18,7 +18,7 @@ public class SDLTCPTransport: SDLTransport {
     private var sendQueue: DispatchQueue
     
     override public init() {
-        sendQueue = DispatchQueue(label: "com.sdl.transport.tcp.transmit", attributes: DispatchQueueAttributes.serial)
+        sendQueue = DispatchQueue(label: "com.sdl.transport.tcp.transmit", attributes: .serial)
     }
     
     override public func connectTransport() {
@@ -30,7 +30,7 @@ public class SDLTCPTransport: SDLTransport {
         }
         
         var context = CFSocketContext(version: 0,
-                                      info: UnsafeMutablePointer(OpaquePointer(bitPattern: Unmanaged.passRetained(self))),
+                                      info: UnsafeMutablePointer(OpaquePointer(bitPattern: .passRetained(self))),
                                       retain: nil,
                                       release: nil,
                                       copyDescription: nil)
@@ -120,8 +120,6 @@ public class SDLTCPTransport: SDLTransport {
             if let info = info {
                 let transport = Unmanaged<SDLTCPTransport>.fromOpaque(OpaquePointer(info)).takeRetainedValue()
                 transport.delegate?.connected(to: transport)
-                
-                transport.send(data: Data(bytes: [0x10, 0x07, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00]))
             }
         } else if callBack == .dataCallBack{
             print("data callback")

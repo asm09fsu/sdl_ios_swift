@@ -15,6 +15,7 @@ public class SDLProxy: SDLProtocolListener {
     public init(transport: SDLTransport, `protocol`: SDLProtocol) {
         self.transport = transport
         self.`protocol` = `protocol`
+        self.`protocol`.transport = self.transport
         self.`protocol`.add(protocolDelegate: self)
         self.transport.delegate = self.`protocol`
         
@@ -23,6 +24,7 @@ public class SDLProxy: SDLProtocolListener {
     
     public func protocolOpened() {
         print("protocolOpenend")
+        `protocol`.startSession(for: .rpc)
     }
     
     public func protocolCloseed() {
