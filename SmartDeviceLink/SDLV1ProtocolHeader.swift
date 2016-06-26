@@ -33,7 +33,13 @@ public class SDLV1ProtocolHeader: SDLProtocolHeader {
         self.init(size: 8, version: 1)
     }
     
-    public override func parse(_ buffer: Data) {
-        
+    public override func parse(_ data: Data) {
+        super.parse(data)
+
+        let pointer = UnsafeMutablePointer<UInt32>(allocatingCapacity: size)
+        let bytes = UnsafeMutableBufferPointer<UInt32>(start: pointer, count: size)
+        _ = data.copyBytes(to: bytes)
+
+        bytesInPayload = CFSwapInt32BigToHost(bytes[1])
     }
 }

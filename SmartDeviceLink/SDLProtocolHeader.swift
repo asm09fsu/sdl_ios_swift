@@ -71,5 +71,12 @@ public class SDLProtocolHeader {
         }
     }
     
-    public func parse(_ buffer: Data) { }
+    public func parse(_ data: Data) {
+        let firstByte = data[0]
+        encrypted = (firstByte & 0x08) != 0
+        frame.type = SDLFrameType(rawValue: (firstByte & 0x07))!
+        serviceType = SDLServiceType(rawValue: data[1])!
+        frame.data = SDLFrameData(rawValue: data[2])!
+        sessionID = data[3]
+    }
 }
