@@ -19,7 +19,7 @@ public class SDLGlobals {
     }
     
     public class var maxMTUSize: UInt {
-        switch _protocolVersion {
+        switch protocolVersion {
         case 1, 2:
             return 1024
         case 3, 4:
@@ -29,7 +29,7 @@ public class SDLGlobals {
                 return 131084
             }
         default:
-            print("Unknown version number: \(_protocolVersion)")
+            print("Unknown version number: \(protocolVersion)")
             return 0
         }
     }
@@ -37,10 +37,10 @@ public class SDLGlobals {
     public class var maxHeadUnitVersion: UInt {
         set {
             _protocolVersion = min(newValue, maxProxyVersion)
-            self.maxHeadUnitVersion = newValue
+            _maxHeadUnitVersion = newValue
         }
         get {
-            return self.maxHeadUnitVersion
+            return _maxHeadUnitVersion
         }
     }
 }
