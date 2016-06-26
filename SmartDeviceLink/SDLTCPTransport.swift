@@ -170,10 +170,8 @@ public class SDLTCPTransport: SDLTransport {
             print("data callback")
             if let info = info {
                 let transport = Unmanaged<SDLTCPTransport>.fromOpaque(OpaquePointer(info)).takeRetainedValue()
-
-                let receivedData = Data(bytes: CFDataGetBytePtr(address), count: CFDataGetLength(address))
-
-                transport.delegate?.received(receivedData)
+                let data = Unmanaged<CFData>.fromOpaque(OpaquePointer(data!)).takeUnretainedValue() as Data
+                transport.delegate?.received(data)
             }
         } else {
             print("else callback")
