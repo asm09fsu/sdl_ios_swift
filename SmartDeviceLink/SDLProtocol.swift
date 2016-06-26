@@ -85,7 +85,7 @@ public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
     
     // MARK: SDLTransportDelegate
     public func connected(to transport: SDLTransport) {
-        for case let listener as SDLProtocolListener in protocolDelegates.allObjects {
+        sdl_performOnProtocolListeners { (listener) in
             listener.protocolOpened()
         }
     }
@@ -174,6 +174,18 @@ public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
         } else {
             print("Warning: Tried to retrieve sessionID for serviceType \(type), but no sessionID is saved for that service type.")
             return 0
+        }
+    }
+    
+    private func sdl_performOnProtocolListeners(block: (listener: SDLProtocolListener) -> Void) {
+        for case let listener as SDLProtocolListener in protocolDelegates.allObjects {
+            block(listener: listener)
+        }
+    }
+    
+    private func sdl_performOnMessageRouterListeners(block: (listener: SDLMessageRouterProtocol) -> Void) {
+        for case let listener as SDLMessageRouterProtocol in messageDelegates.allObjects {
+            block(listener: listener)
         }
     }
 }
