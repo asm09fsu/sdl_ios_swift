@@ -37,13 +37,15 @@ public enum SDLFrameType: UInt8 {
 
 public protocol SDLProtocolListener {
     func protocolOpened()
-    func protocolCloseed()
+    func protocolClosed()
 }
 
-public class SDLProtocol: SDLTransportDelegate {
+public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
 
     private var protocolDelegates = HashTable<AnyObject>()
     private var incomingBuffer: Data = Data(capacity: 4 * Int(SDLGlobals.maxMTUSize))!
+    private var messageRouter = SDLProtocolMessageRouter()
+    private var receiveQueue = DispatchQueue(label: "com.sdl.protocol.receive", attributes: .serial)
     private var sendQueue = DispatchQueue(label: "com.sdl.protocol.transmit", attributes: .serial)
     private var sessionIDs = Dictionary<SDLServiceType, UInt8>()
     private var currentSessionID: UInt8 = 0
@@ -64,6 +66,11 @@ public class SDLProtocol: SDLTransportDelegate {
     }
     
     public func send(data: Data?, for service: SDLServiceType) {
+        // we cannot do this in init because of self.init
+        if messageRouter.delegate == nil {
+            messageRouter.delegate = self
+        }
+        
         if let data = data {
             sendQueue.async {
                 self.transport!.send(data: data)
@@ -89,15 +96,67 @@ public class SDLProtocol: SDLTransportDelegate {
         }
     }
     
+    // MARK: SDLMessageRouterProtocol
+    func handleProtocolStartSessionACK(for type: SDLServiceType, sessionID: UInt8, version: UInt8) {
+        print("handleProtocolStartSessionACK")
+    }
+    
+    func handleProtocolStartSessionNACK(for type: SDLServiceType) {
+        print("handleProtocolStartSessionNACK")
+    }
+    
+    func handleProtocolEndSessionACK(for type: SDLServiceType) {
+        print("handleProtocolEndSessionACK")
+    }
+    
+    func handleProtocolEndSessionNACK(for type: SDLServiceType) {
+        print("handleProtocolEndSessionNACK")
+    }
+    
+    func handleHeartbeat(for sessionID: UInt8) {
+        print("handleHeartbeat")
+    }
+    
+    func handleHeartbeatACK() {
+        print("handleHeartbeatACK")
+    }
+    
+    func protocolReceived(message: SDLProtocolMessage) {
+        print("protocolReceived")
+    }
+    
     // MARK: Private Functions
     private func sdl_processPendingMessages() {
         let incomingVersion = SDLProtocolMessage.version(from: incomingBuffer)
         
         if let header = SDLProtocolHeader.header(for: incomingVersion) {
-            if Int(header.size) < incomingBuffer.count {
+            if header.size < incomingBuffer.count {
                 header.parse(incomingBuffer)
             } else {
                 return
+            }
+            
+            let messageSize = header.size + Int(header.bytesInPayload)
+            var message: SDLProtocolMessage
+            if messageSize < incomingBuffer.count {
+                let offset = header.size
+                let size = Int(header.bytesInPayload)
+                let payload = incomingBuffer.subdata(in: offset ..< (size + offset))
+                message = SDLProtocolMessage(header: header, payload: payload)
+                print("message complete.")
+            } else {
+                print("header complete. message incomplete, waiting for \(messageSize - incomingBuffer.count) more bytes.")
+                return
+            }
+            
+            incomingBuffer = incomingBuffer.subdata(in: message.size ..< incomingBuffer.count)
+            
+            receiveQueue.async {
+                self.messageRouter.handle(message)
+            }
+            
+            if incomingBuffer.count > 0 {
+                sdl_processPendingMessages()
             }
         } else {
             return

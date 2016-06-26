@@ -27,7 +27,7 @@ public class SDLProxy: SDLProtocolListener {
         `protocol`.startSession(for: .rpc)
     }
     
-    public func protocolCloseed() {
+    public func protocolClosed() {
         print("protocolClosed")        
     }
 }
