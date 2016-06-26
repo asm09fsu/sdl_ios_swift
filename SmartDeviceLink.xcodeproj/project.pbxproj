@@ -13,6 +13,24 @@
 		DA2D6ED91D13D71E00AF0A44 /* SDLTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D6ED81D13D71E00AF0A44 /* SDLTransport.swift */; };
 		DA2D6EDB1D13DE9700AF0A44 /* SDLProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D6EDA1D13DE9700AF0A44 /* SDLProxy.swift */; };
 		DA2D6EDD1D13E06300AF0A44 /* SDLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D6EDC1D13E06300AF0A44 /* SDLProtocol.swift */; };
+		DA8B097E1D1FC30600DA9827 /* SmartDeviceLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB4AA411D1369C100837510 /* SmartDeviceLink.framework */; };
+		DA8B098D1D1FC32D00DA9827 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8B09851D1FC32D00DA9827 /* Nimble.framework */; };
+		DA8B098E1D1FC32D00DA9827 /* Nimble.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = DA8B09861D1FC32D00DA9827 /* Nimble.framework.dSYM */; };
+		DA8B098F1D1FC32D00DA9827 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8B09871D1FC32D00DA9827 /* OCMock.framework */; };
+		DA8B09901D1FC32D00DA9827 /* OCMock.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = DA8B09881D1FC32D00DA9827 /* OCMock.framework.dSYM */; };
+		DA8B09911D1FC32D00DA9827 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8B09891D1FC32D00DA9827 /* OHHTTPStubs.framework */; };
+		DA8B09921D1FC32D00DA9827 /* OHHTTPStubs.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = DA8B098A1D1FC32D00DA9827 /* OHHTTPStubs.framework.dSYM */; };
+		DA8B09931D1FC32D00DA9827 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8B098B1D1FC32D00DA9827 /* Quick.framework */; };
+		DA8B09941D1FC32D00DA9827 /* Quick.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = DA8B098C1D1FC32D00DA9827 /* Quick.framework.dSYM */; };
+		DA8B09961D1FC38F00DA9827 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B09891D1FC32D00DA9827 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DA8B09971D1FC38F00DA9827 /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B09871D1FC32D00DA9827 /* OCMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DA8B09981D1FC38F00DA9827 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B098B1D1FC32D00DA9827 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DA8B09991D1FC38F00DA9827 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B09851D1FC32D00DA9827 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DA8B099A1D1FC3A900DA9827 /* SmartDeviceLink.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DAB4AA411D1369C100837510 /* SmartDeviceLink.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DA8B099C1D1FC3B800DA9827 /* Nimble.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B09861D1FC32D00DA9827 /* Nimble.framework.dSYM */; };
+		DA8B099D1D1FC3B800DA9827 /* OCMock.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B09881D1FC32D00DA9827 /* OCMock.framework.dSYM */; };
+		DA8B099E1D1FC3B800DA9827 /* OHHTTPStubs.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B098A1D1FC32D00DA9827 /* OHHTTPStubs.framework.dSYM */; };
+		DA8B099F1D1FC3B800DA9827 /* Quick.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B098C1D1FC32D00DA9827 /* Quick.framework.dSYM */; };
 		DAB4AA451D1369C100837510 /* SmartDeviceLink.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB4AA441D1369C100837510 /* SmartDeviceLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB4AA4D1D1369DD00837510 /* SDLHexUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4AA4C1D1369DD00837510 /* SDLHexUtility.swift */; };
 		DAB4AA4F1D1369F300837510 /* SDLDebugTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4AA4E1D1369F300837510 /* SDLDebugTool.swift */; };
@@ -32,6 +50,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DA8B097F1D1FC30600DA9827 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAB4AA381D1369C100837510 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAB4AA401D1369C100837510;
+			remoteInfo = SmartDeviceLink;
+		};
 		DAB4AAC91D1386F200837510 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAB4AA381D1369C100837510 /* Project object */;
@@ -41,6 +66,36 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DA8B09951D1FC38500DA9827 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DA8B099A1D1FC3A900DA9827 /* SmartDeviceLink.framework in CopyFiles */,
+				DA8B09961D1FC38F00DA9827 /* OHHTTPStubs.framework in CopyFiles */,
+				DA8B09971D1FC38F00DA9827 /* OCMock.framework in CopyFiles */,
+				DA8B09981D1FC38F00DA9827 /* Quick.framework in CopyFiles */,
+				DA8B09991D1FC38F00DA9827 /* Nimble.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA8B099B1D1FC3AD00DA9827 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				DA8B099C1D1FC3B800DA9827 /* Nimble.framework.dSYM in CopyFiles */,
+				DA8B099D1D1FC3B800DA9827 /* OCMock.framework.dSYM in CopyFiles */,
+				DA8B099E1D1FC3B800DA9827 /* OHHTTPStubs.framework.dSYM in CopyFiles */,
+				DA8B099F1D1FC3B800DA9827 /* Quick.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		DA27396E1D1EDBF800631207 /* SDLGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLGlobals.swift; sourceTree = "<group>"; };
 		DA2739701D1EE74D00631207 /* SDLV1ProtocolMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLV1ProtocolMessage.swift; sourceTree = "<group>"; };
@@ -48,6 +103,16 @@
 		DA2D6ED81D13D71E00AF0A44 /* SDLTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLTransport.swift; sourceTree = "<group>"; };
 		DA2D6EDA1D13DE9700AF0A44 /* SDLProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLProxy.swift; sourceTree = "<group>"; };
 		DA2D6EDC1D13E06300AF0A44 /* SDLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLProtocol.swift; sourceTree = "<group>"; };
+		DA8B09791D1FC30600DA9827 /* SmartDeviceLinkTests-Swift.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SmartDeviceLinkTests-Swift.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA8B097D1D1FC30600DA9827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA8B09851D1FC32D00DA9827 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
+		DA8B09861D1FC32D00DA9827 /* Nimble.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Nimble.framework.dSYM; path = Carthage/Build/iOS/Nimble.framework.dSYM; sourceTree = SOURCE_ROOT; };
+		DA8B09871D1FC32D00DA9827 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Carthage/Build/iOS/OCMock.framework; sourceTree = SOURCE_ROOT; };
+		DA8B09881D1FC32D00DA9827 /* OCMock.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OCMock.framework.dSYM; path = Carthage/Build/iOS/OCMock.framework.dSYM; sourceTree = SOURCE_ROOT; };
+		DA8B09891D1FC32D00DA9827 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = SOURCE_ROOT; };
+		DA8B098A1D1FC32D00DA9827 /* OHHTTPStubs.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OHHTTPStubs.framework.dSYM; path = Carthage/Build/iOS/OHHTTPStubs.framework.dSYM; sourceTree = SOURCE_ROOT; };
+		DA8B098B1D1FC32D00DA9827 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
+		DA8B098C1D1FC32D00DA9827 /* Quick.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Quick.framework.dSYM; path = Carthage/Build/iOS/Quick.framework.dSYM; sourceTree = SOURCE_ROOT; };
 		DAB4AA411D1369C100837510 /* SmartDeviceLink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SmartDeviceLink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB4AA441D1369C100837510 /* SmartDeviceLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartDeviceLink.h; sourceTree = "<group>"; };
 		DAB4AA461D1369C100837510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +135,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DA8B09761D1FC30600DA9827 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA8B097E1D1FC30600DA9827 /* SmartDeviceLink.framework in Frameworks */,
+				DA8B09911D1FC32D00DA9827 /* OHHTTPStubs.framework in Frameworks */,
+				DA8B098F1D1FC32D00DA9827 /* OCMock.framework in Frameworks */,
+				DA8B09931D1FC32D00DA9827 /* Quick.framework in Frameworks */,
+				DA8B098D1D1FC32D00DA9827 /* Nimble.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAB4AA3D1D1369C100837510 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -88,11 +165,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA8B097A1D1FC30600DA9827 /* SmartDeviceLinkTests-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B09841D1FC31C00DA9827 /* Libraries */,
+				DA8B097D1D1FC30600DA9827 /* Info.plist */,
+			);
+			path = "SmartDeviceLinkTests-Swift";
+			sourceTree = "<group>";
+		};
+		DA8B09841D1FC31C00DA9827 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B09891D1FC32D00DA9827 /* OHHTTPStubs.framework */,
+				DA8B09871D1FC32D00DA9827 /* OCMock.framework */,
+				DA8B098B1D1FC32D00DA9827 /* Quick.framework */,
+				DA8B09851D1FC32D00DA9827 /* Nimble.framework */,
+				DA8B09861D1FC32D00DA9827 /* Nimble.framework.dSYM */,
+				DA8B09881D1FC32D00DA9827 /* OCMock.framework.dSYM */,
+				DA8B098A1D1FC32D00DA9827 /* OHHTTPStubs.framework.dSYM */,
+				DA8B098C1D1FC32D00DA9827 /* Quick.framework.dSYM */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
 		DAB4AA371D1369C100837510 = {
 			isa = PBXGroup;
 			children = (
 				DAB4AAB81D13852E00837510 /* Example-Swift */,
 				DAB4AA431D1369C100837510 /* SmartDeviceLink */,
+				DA8B097A1D1FC30600DA9827 /* SmartDeviceLinkTests-Swift */,
 				DAB4AA421D1369C100837510 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +204,7 @@
 			children = (
 				DAB4AA411D1369C100837510 /* SmartDeviceLink.framework */,
 				DAB4AAB71D13852E00837510 /* Example-Swift.app */,
+				DA8B09791D1FC30600DA9827 /* SmartDeviceLinkTests-Swift.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,6 +260,26 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		DA8B09781D1FC30600DA9827 /* SmartDeviceLinkTests-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA8B09811D1FC30600DA9827 /* Build configuration list for PBXNativeTarget "SmartDeviceLinkTests-Swift" */;
+			buildPhases = (
+				DA8B09751D1FC30600DA9827 /* Sources */,
+				DA8B09761D1FC30600DA9827 /* Frameworks */,
+				DA8B09771D1FC30600DA9827 /* Resources */,
+				DA8B09951D1FC38500DA9827 /* CopyFiles */,
+				DA8B099B1D1FC3AD00DA9827 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA8B09801D1FC30600DA9827 /* PBXTargetDependency */,
+			);
+			name = "SmartDeviceLinkTests-Swift";
+			productName = "SmartDeviceLinkTests-Swift";
+			productReference = DA8B09791D1FC30600DA9827 /* SmartDeviceLinkTests-Swift.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DAB4AA401D1369C100837510 /* SmartDeviceLink */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAB4AA491D1369C100837510 /* Build configuration list for PBXNativeTarget "SmartDeviceLink" */;
@@ -203,6 +326,13 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = SmartDeviceLink;
 				TargetAttributes = {
+					DA8B09781D1FC30600DA9827 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = D7F2XSAK77;
+						DevelopmentTeamName = "Alexander Muller";
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
 					DAB4AA401D1369C100837510 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = D7F2XSAK77;
@@ -233,11 +363,23 @@
 			targets = (
 				DAB4AA401D1369C100837510 /* SmartDeviceLink */,
 				DAB4AAB61D13852E00837510 /* Example-Swift */,
+				DA8B09781D1FC30600DA9827 /* SmartDeviceLinkTests-Swift */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DA8B09771D1FC30600DA9827 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA8B09941D1FC32D00DA9827 /* Quick.framework.dSYM in Resources */,
+				DA8B09901D1FC32D00DA9827 /* OCMock.framework.dSYM in Resources */,
+				DA8B09921D1FC32D00DA9827 /* OHHTTPStubs.framework.dSYM in Resources */,
+				DA8B098E1D1FC32D00DA9827 /* Nimble.framework.dSYM in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAB4AA3F1D1369C100837510 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,6 +434,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DA8B09801D1FC30600DA9827 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAB4AA401D1369C100837510 /* SmartDeviceLink */;
+			targetProxy = DA8B097F1D1FC30600DA9827 /* PBXContainerItemProxy */;
+		};
 		DAB4AACA1D1386F200837510 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DAB4AA401D1369C100837510 /* SmartDeviceLink */;
@@ -319,6 +466,39 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DA8B09821D1FC30600DA9827 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "SmartDeviceLinkTests-Swift/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.smartDeviceLink.SmartDeviceLinkTests-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DA8B09831D1FC30600DA9827 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "SmartDeviceLinkTests-Swift/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.smartDeviceLink.SmartDeviceLinkTests-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		DAB4AA471D1369C100837510 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -484,6 +664,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DA8B09811D1FC30600DA9827 /* Build configuration list for PBXNativeTarget "SmartDeviceLinkTests-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA8B09821D1FC30600DA9827 /* Debug */,
+				DA8B09831D1FC30600DA9827 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		DAB4AA3B1D1369C100837510 /* Build configuration list for PBXProject "SmartDeviceLink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
