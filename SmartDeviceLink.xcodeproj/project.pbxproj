@@ -31,6 +31,7 @@
 		DA8B099D1D1FC3B800DA9827 /* OCMock.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B09881D1FC32D00DA9827 /* OCMock.framework.dSYM */; };
 		DA8B099E1D1FC3B800DA9827 /* OHHTTPStubs.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B098A1D1FC32D00DA9827 /* OHHTTPStubs.framework.dSYM */; };
 		DA8B099F1D1FC3B800DA9827 /* Quick.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B098C1D1FC32D00DA9827 /* Quick.framework.dSYM */; };
+		DA8B09A11D1FC3EE00DA9827 /* SDLGlobalsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B09A01D1FC3EE00DA9827 /* SDLGlobalsSpec.swift */; };
 		DAB4AA451D1369C100837510 /* SmartDeviceLink.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB4AA441D1369C100837510 /* SmartDeviceLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB4AA4D1D1369DD00837510 /* SDLHexUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4AA4C1D1369DD00837510 /* SDLHexUtility.swift */; };
 		DAB4AA4F1D1369F300837510 /* SDLDebugTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4AA4E1D1369F300837510 /* SDLDebugTool.swift */; };
@@ -113,6 +114,7 @@
 		DA8B098A1D1FC32D00DA9827 /* OHHTTPStubs.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OHHTTPStubs.framework.dSYM; path = Carthage/Build/iOS/OHHTTPStubs.framework.dSYM; sourceTree = SOURCE_ROOT; };
 		DA8B098B1D1FC32D00DA9827 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 		DA8B098C1D1FC32D00DA9827 /* Quick.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Quick.framework.dSYM; path = Carthage/Build/iOS/Quick.framework.dSYM; sourceTree = SOURCE_ROOT; };
+		DA8B09A01D1FC3EE00DA9827 /* SDLGlobalsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLGlobalsSpec.swift; sourceTree = "<group>"; };
 		DAB4AA411D1369C100837510 /* SmartDeviceLink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SmartDeviceLink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB4AA441D1369C100837510 /* SmartDeviceLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartDeviceLink.h; sourceTree = "<group>"; };
 		DAB4AA461D1369C100837510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				DA8B09841D1FC31C00DA9827 /* Libraries */,
+				DA8B09A01D1FC3EE00DA9827 /* SDLGlobalsSpec.swift */,
 				DA8B097D1D1FC30600DA9827 /* Info.plist */,
 			);
 			path = "SmartDeviceLinkTests-Swift";
@@ -400,6 +403,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DA8B09751D1FC30600DA9827 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA8B09A11D1FC3EE00DA9827 /* SDLGlobalsSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAB4AA3C1D1369C100837510 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
