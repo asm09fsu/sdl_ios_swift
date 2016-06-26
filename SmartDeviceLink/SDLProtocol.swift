@@ -103,7 +103,22 @@ public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
     
     // MARK: SDLMessageRouterProtocol
     func handleProtocolStartSessionACK(for type: SDLServiceType, sessionID: UInt8, version: UInt8) {
-        print("handleProtocolStartSessionACK")
+        switch type {
+        case .rpc:
+            currentSessionID = sessionID
+            SDLGlobals.maxHeadUnitVersion = UInt(version)
+            break
+        default:
+            break
+        }
+        
+        sdl_setSessionID(sessionID, for: type)
+        
+        sdl_performOnMessageRouterListeners { (listener) in
+            listener.handleProtocolStartSessionACK(for: type,
+                                                   sessionID: sessionID,
+                                                   version: version)
+        }
     }
     
     func handleProtocolStartSessionNACK(for type: SDLServiceType) {
@@ -175,6 +190,10 @@ public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
             print("Warning: Tried to retrieve sessionID for serviceType \(type), but no sessionID is saved for that service type.")
             return 0
         }
+    }
+    
+    private func sdl_setSessionID(_ sessionID: UInt8, for type: SDLServiceType) {
+        sessionIDs[type] = sessionID
     }
     
     private func sdl_performOnProtocolListeners(block: (listener: SDLProtocolListener) -> Void) {
