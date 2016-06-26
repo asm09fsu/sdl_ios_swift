@@ -43,6 +43,7 @@ public protocol SDLProtocolListener {
 public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
 
     private var protocolDelegates = HashTable<AnyObject>()
+    private var messageDelegates = HashTable<AnyObject>()
     private var incomingBuffer: Data = Data(capacity: 4 * Int(SDLGlobals.maxMTUSize))!
     private var messageRouter = SDLProtocolMessageRouter()
     private var receiveQueue = DispatchQueue(label: "com.sdl.protocol.receive", attributes: .serial)
@@ -56,6 +57,10 @@ public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
     
     public func add(protocolDelegate: AnyObject) {
         protocolDelegates.add(protocolDelegate)
+    }
+    
+    public func add(messagesDelegate: AnyObject) {
+        messageDelegates.add(messagesDelegate)
     }
     
     public func startSession(for type: SDLServiceType) {

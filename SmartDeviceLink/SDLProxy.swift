@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SDLProxy: SDLProtocolListener {
+public class SDLProxy: SDLProtocolListener, SDLMessageRouterProtocol {
     private let transport: SDLTransport
     private let `protocol`: SDLProtocol
     
@@ -17,11 +17,13 @@ public class SDLProxy: SDLProtocolListener {
         self.`protocol` = `protocol`
         self.`protocol`.transport = self.transport
         self.`protocol`.add(protocolDelegate: self)
+        self.`protocol`.add(messagesDelegate: self)
         self.transport.delegate = self.`protocol`
         
         self.transport.connectTransport()
     }
     
+    // MARK: SDLProtocolListener
     public func protocolOpened() {
         print("protocolOpenend")
         `protocol`.startSession(for: .rpc)
@@ -29,5 +31,34 @@ public class SDLProxy: SDLProtocolListener {
     
     public func protocolClosed() {
         print("protocolClosed")        
+    }
+    
+    // MARK: SDLMessageRouterProtocol
+    func handleProtocolStartSessionACK(for type: SDLServiceType, sessionID: UInt8, version: UInt8) {
+        print("handleProtocolStartSessionACK")
+    }
+    
+    func handleProtocolStartSessionNACK(for type: SDLServiceType) {
+        print("handleProtocolStartSessionNACK")
+    }
+    
+    func handleProtocolEndSessionACK(for type: SDLServiceType) {
+        print("handleProtocolEndSessionACK")
+    }
+    
+    func handleProtocolEndSessionNACK(for type: SDLServiceType) {
+        print("handleProtocolEndSessionNACK")
+    }
+    
+    func handleHeartbeat(for sessionID: UInt8) {
+        print("handleHeartbeat")
+    }
+    
+    func handleHeartbeatACK() {
+        print("handleHeartbeatACK")
+    }
+    
+    func protocolReceived(message: SDLProtocolMessage) {
+        print("protocolReceived")
     }
 }
