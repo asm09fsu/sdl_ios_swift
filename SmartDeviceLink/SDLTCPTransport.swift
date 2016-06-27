@@ -163,15 +163,19 @@ public class SDLTCPTransport: SDLTransport {
         if callBack == .connectCallBack {
             print("connect callback")
             if let info = info {
-                let transport = Unmanaged<SDLTCPTransport>.fromOpaque(OpaquePointer(info)).takeRetainedValue()
+                let transport = Unmanaged<SDLTCPTransport>.fromOpaque(OpaquePointer(info)).takeUnretainedValue()
                 transport.delegate?.connected(to: transport)
             }
         } else if callBack == .dataCallBack{
             print("data callback")
-            if let info = info {
-                let transport = Unmanaged<SDLTCPTransport>.fromOpaque(OpaquePointer(info)).takeRetainedValue()
-                let data = Unmanaged<CFData>.fromOpaque(OpaquePointer(data!)).takeUnretainedValue() as Data
-                transport.delegate?.received(data)
+            if let info = info, let data = data {
+                let transport = Unmanaged<SDLTCPTransport>.fromOpaque(OpaquePointer(info)).takeUnretainedValue()
+                let data = Unmanaged<CFData>.fromOpaque(OpaquePointer(data)).takeUnretainedValue() as Data
+                if data.count > 0 {
+                    transport.delegate?.received(data)
+                } else {
+                    transport.delegate?.disconnected(from: transport)
+                }
             }
         } else {
             print("else callback")
