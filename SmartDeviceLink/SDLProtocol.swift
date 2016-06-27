@@ -90,6 +90,12 @@ public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
         }
     }
     
+    public func disconnected(from transport: SDLTransport) {
+        sdl_performOnProtocolListeners { (listener) in
+            listener.protocolClosed()
+        }
+    }
+    
     public func received(_ data: Data?) {
         if let data = data {
             print("Received \(data.count) bytes: \(data)")

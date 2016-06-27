@@ -160,26 +160,25 @@ public class SDLTCPTransport: SDLTransport {
     }
     
     private var socketCallback: CFSocketCallBack = { (socket: CFSocket?, callBack: CFSocketCallBackType, address: CFData?, data: UnsafePointer<Void>?, info: UnsafeMutablePointer<Void>?) -> Void in
-        if callBack == .connectCallBack {
-            print("connect callback")
-            if let info = info {
-                let transport = Unmanaged<SDLTCPTransport>.fromOpaque(OpaquePointer(info)).takeUnretainedValue()
+        if let info = info {
+            let transport = Unmanaged<SDLTCPTransport>.fromOpaque(OpaquePointer(info)).takeUnretainedValue()
+            if callBack == .connectCallBack {
                 transport.delegate?.connected(to: transport)
-            }
-        } else if callBack == .dataCallBack{
-            print("data callback")
-            if let info = info, let data = data {
-                let transport = Unmanaged<SDLTCPTransport>.fromOpaque(OpaquePointer(info)).takeUnretainedValue()
-                let data = Unmanaged<CFData>.fromOpaque(OpaquePointer(data)).takeUnretainedValue() as Data
-                if data.count > 0 {
-                    transport.delegate?.received(data)
-                } else {
-                    transport.delegate?.disconnected(from: transport)
+            } else if callBack == .dataCallBack {
+                if let data = data {
+                    let transport = Unmanaged<SDLTCPTransport>.fromOpaque(OpaquePointer(info)).takeUnretainedValue()
+                    let data = Unmanaged<CFData>.fromOpaque(OpaquePointer(data)).takeUnretainedValue() as Data
+                    if data.count > 0 {
+                        transport.delegate?.received(data)
+                    } else {
+                        transport.delegate?.disconnected(from: transport)
+                    }
                 }
+            } else {
+                print("received callback for type: \(callBack)")
             }
         } else {
-            print("else callback")
+            print("unrecoverable error")
         }
     }
-    
 }

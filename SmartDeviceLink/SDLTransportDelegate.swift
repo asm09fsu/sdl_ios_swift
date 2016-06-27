@@ -10,5 +10,6 @@ import Foundation
 
 public protocol SDLTransportDelegate: class {
     func connected(to transport: SDLTransport)
+    func disconnected(from transport: SDLTransport)
     func received(_ data: Data?)
 }
