@@ -54,7 +54,7 @@ public class SDLTCPTransport: SDLTransport {
         }
     }
 
-    override public func send(data: Data) {
+    override public func send(_ data: Data) {
         sendQueue.async { 
             autoreleasepool {
                 let error = CFSocketSendData(self.socketObj, nil, data as CFData, 10000)

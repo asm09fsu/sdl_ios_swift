@@ -46,6 +46,7 @@ public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
     private var messageDelegates = HashTable<AnyObject>()
     private var incomingBuffer: Data = Data(capacity: 4 * Int(SDLGlobals.maxMTUSize))!
     private var messageRouter = SDLProtocolMessageRouter()
+    private var dataPriorityQueue = SDLDataPriorityQueue()
     private var receiveQueue = DispatchQueue(label: "com.sdl.protocol.receive", attributes: .serial)
     private var sendQueue = DispatchQueue(label: "com.sdl.protocol.transmit", attributes: .serial)
     private var sessionIDs = Dictionary<SDLServiceType, UInt8>()
@@ -77,8 +78,12 @@ public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
         }
         
         if let data = data {
+            dataPriorityQueue.add(data, priority: service)
+    
             sendQueue.async {
-                self.transport!.send(data: data)
+                while let currentData = self.dataPriorityQueue.pop() {
+                    self.transport!.send(currentData)
+                }
             }
         }
     }

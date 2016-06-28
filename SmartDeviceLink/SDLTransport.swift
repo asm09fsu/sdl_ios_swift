@@ -16,6 +16,6 @@ public class SDLTransport {
     // we cannot use connect() because of an issue with c-based connect() function
     func connectTransport() { }
     func disconnect() { }
-    func send(data: Data) { }
+    func send(_ data: Data) { }
     func cleanUp() { }
 }
