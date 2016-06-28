@@ -161,7 +161,7 @@ public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
         let incomingVersion = SDLProtocolMessage.version(from: incomingBuffer)
         
         if let header = SDLProtocolHeader.header(for: incomingVersion) {
-            if header.size < incomingBuffer.count {
+            if header.size <= incomingBuffer.count {
                 header.parse(incomingBuffer)
             } else {
                 return
@@ -169,7 +169,7 @@ public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
             
             let messageSize = header.size + Int(header.bytesInPayload)
             var message: SDLProtocolMessage
-            if messageSize < incomingBuffer.count {
+            if messageSize <= incomingBuffer.count {
                 let offset = header.size
                 let size = Int(header.bytesInPayload)
                 let payload = incomingBuffer.subdata(in: offset ..< (size + offset))
