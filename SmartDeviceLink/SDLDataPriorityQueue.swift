@@ -35,7 +35,7 @@ class SDLDataPriorityQueue {
     }
 }
 
-private class SDLDataPriorityObject {
+internal class SDLDataPriorityObject {
     var data: Data
     var priority: UInt8
     
