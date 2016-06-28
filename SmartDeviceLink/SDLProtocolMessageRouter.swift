@@ -22,6 +22,8 @@ protocol SDLMessageRouterProtocol {
 class SDLProtocolMessageRouter {
     var delegate: SDLMessageRouterProtocol?
     
+    private var interpreters = [UInt8 : SDLProtocolMessageInterpreter]()
+    
     init() { }
     
     func handle(_ message: SDLProtocolMessage) {
@@ -66,10 +68,21 @@ class SDLProtocolMessageRouter {
     }
 
     private func dispatchMultiPartMessage(for message: SDLProtocolMessage) {
+        var interpreter = interpreters[message.header.sessionID]
         
+        if interpreter == nil {
+            interpreter = SDLProtocolMessageInterpreter(sessionID: message.header.sessionID)
+            interpreters[message.header.sessionID] = interpreter
+        }
+        
+        interpreter?.assemble(message: message) { (complete, message) in
+            if complete {
+                self.dispatchProtocolMessage(for: message)
+            }
+        }
     }
 
     private func dispatchProtocolMessage(for message: SDLProtocolMessage) {
-        
+        delegate?.protocolReceived(message: message)
     }
 }
