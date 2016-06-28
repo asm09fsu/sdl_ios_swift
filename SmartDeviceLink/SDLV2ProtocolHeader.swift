@@ -13,7 +13,7 @@ public class SDLV2ProtocolHeader: SDLProtocolHeader {
     public var messageID: UInt32 = 0
     
     convenience init(version: UInt8) {
-        self.init(size: 8, version: version)
+        self.init(size: 12, version: version)
     }
     
     public override func parse(_ data: Data) {
