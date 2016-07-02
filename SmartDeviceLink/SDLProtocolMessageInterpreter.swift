@@ -6,6 +6,8 @@
 //  Copyright © 2016 SmartDeviceLink. All rights reserved.
 //
 
+import Foundation
+
 // In charge of both assembling and disassembling messages
 class SDLProtocolMessageInterpreter {
     
