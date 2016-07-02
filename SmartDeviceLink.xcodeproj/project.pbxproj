@@ -26,6 +26,7 @@
 		DA38E66E1D2208C100BE68E4 /* SDLV1ProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2739701D1EE74D00631207 /* SDLV1ProtocolMessage.swift */; };
 		DA38E66F1D2208C500BE68E4 /* SDLV2ProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2739721D1EE8A000631207 /* SDLV2ProtocolMessage.swift */; };
 		DA5C461F1D223EC10080D190 /* SDLProtocolMessageInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C461E1D223EC10080D190 /* SDLProtocolMessageInterpreter.swift */; };
+		DA67851B1D27804500006E04 /* SDLProtocolMessageInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C461E1D223EC10080D190 /* SDLProtocolMessageInterpreter.swift */; };
 		DA747A161D21E4E0002892C4 /* SDLGlobalsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA747A151D21E4E0002892C4 /* SDLGlobalsSpec.swift */; };
 		DA747A181D21F05C002892C4 /* SDLDataPriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA747A171D21F05C002892C4 /* SDLDataPriorityQueue.swift */; };
 		DA8B097E1D1FC30600DA9827 /* SmartDeviceLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB4AA411D1369C100837510 /* SmartDeviceLink.framework */; };
@@ -467,6 +468,7 @@
 			files = (
 				DA38E66C1D2208B400BE68E4 /* SDLV1ProtocolHeader.swift in Sources */,
 				DA38E6691D22089200BE68E4 /* SDLProtocolHeader.swift in Sources */,
+				DA67851B1D27804500006E04 /* SDLProtocolMessageInterpreter.swift in Sources */,
 				DA38E66D1D2208B700BE68E4 /* SDLV2ProtocolHeader.swift in Sources */,
 				DA38E66F1D2208C500BE68E4 /* SDLV2ProtocolMessage.swift in Sources */,
 				DA38E6681D22088F00BE68E4 /* SDLTransport.swift in Sources */,
