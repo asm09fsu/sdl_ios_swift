@@ -27,6 +27,7 @@
 		DA38E66E1D2208C100BE68E4 /* SDLV1ProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2739701D1EE74D00631207 /* SDLV1ProtocolMessage.swift */; };
 		DA38E66F1D2208C500BE68E4 /* SDLV2ProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2739721D1EE8A000631207 /* SDLV2ProtocolMessage.swift */; };
 		DA38E6711D2235EF00BE68E4 /* SDLDataPriorityObjectSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38E6701D2235EF00BE68E4 /* SDLDataPriorityObjectSpec.swift */; };
+		DA5C461F1D223EC10080D190 /* SDLProtocolMessageInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C461E1D223EC10080D190 /* SDLProtocolMessageInterpreter.swift */; };
 		DA747A161D21E4E0002892C4 /* SDLGlobalsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA747A151D21E4E0002892C4 /* SDLGlobalsSpec.swift */; };
 		DA747A181D21F05C002892C4 /* SDLDataPriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA747A171D21F05C002892C4 /* SDLDataPriorityQueue.swift */; };
 		DA8B097E1D1FC30600DA9827 /* SmartDeviceLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB4AA411D1369C100837510 /* SmartDeviceLink.framework */; };
@@ -121,6 +122,7 @@
 		DA2D6EDC1D13E06300AF0A44 /* SDLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLProtocol.swift; sourceTree = "<group>"; };
 		DA38E6621D22048400BE68E4 /* SDLDataPriorityQueueSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLDataPriorityQueueSpec.swift; sourceTree = "<group>"; };
 		DA38E6701D2235EF00BE68E4 /* SDLDataPriorityObjectSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLDataPriorityObjectSpec.swift; sourceTree = "<group>"; };
+		DA5C461E1D223EC10080D190 /* SDLProtocolMessageInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLProtocolMessageInterpreter.swift; sourceTree = "<group>"; };
 		DA747A151D21E4E0002892C4 /* SDLGlobalsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLGlobalsSpec.swift; sourceTree = "<group>"; };
 		DA747A171D21F05C002892C4 /* SDLDataPriorityQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLDataPriorityQueue.swift; sourceTree = "<group>"; };
 		DA8B09791D1FC30600DA9827 /* SmartDeviceLinkTests-Swift.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SmartDeviceLinkTests-Swift.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,6 +294,7 @@
 				DAB4AAD01D13913A00837510 /* SDLTransportDelegate.swift */,
 				DA2D6ED81D13D71E00AF0A44 /* SDLTransport.swift */,
 				DA747A171D21F05C002892C4 /* SDLDataPriorityQueue.swift */,
+				DA5C461E1D223EC10080D190 /* SDLProtocolMessageInterpreter.swift */,
 				DAB4AA461D1369C100837510 /* Info.plist */,
 			);
 			path = SmartDeviceLink;
@@ -502,6 +505,7 @@
 				DAC304081D1E715D00DE641B /* SDLProtocolMessage.swift in Sources */,
 				DA747A181D21F05C002892C4 /* SDLDataPriorityQueue.swift in Sources */,
 				DAB4AAD11D13913A00837510 /* SDLTransportDelegate.swift in Sources */,
+				DA5C461F1D223EC10080D190 /* SDLProtocolMessageInterpreter.swift in Sources */,
 				DA2D6ED91D13D71E00AF0A44 /* SDLTransport.swift in Sources */,
 				DA27396F1D1EDBF800631207 /* SDLGlobals.swift in Sources */,
 				DA2739711D1EE74D00631207 /* SDLV1ProtocolMessage.swift in Sources */,
