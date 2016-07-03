@@ -8,10 +8,14 @@
 
 import Foundation
 
+typealias SDLMessageAssemblyCompletionHandler = (complete: Boolean, message: SDLProtocolMessage?) -> Void
+
 // In charge of both assembling and disassembling messages
 class SDLProtocolMessageInterpreter {
     
-    let kFirstFrameIdentifier: Int = -1
+    let FirstFrameIdentifier: Int = -1
+    let LastFrameIdentifier: Int = 0
+    
     
     var sessionID: UInt8 {
         return _sessionID
@@ -21,21 +25,16 @@ class SDLProtocolMessageInterpreter {
     private var expectedBytes: UInt32 = 0
     private var frameCount: UInt32 = 0
     
-    private var messageParts: [Int: Data]?
+    private var messageParts = [Int: Data]()
     
-    init(sessionID: UInt8) {
+    init(sessionID: UInt8 = 0) {
         _sessionID = sessionID
-        messageParts = [Int: Data]()
     }
     
-    func assemble(message: SDLProtocolMessage, handler: ((complete: Boolean, message: SDLProtocolMessage) -> Void)?) {
+    func assemble(message: SDLProtocolMessage, handler: SDLMessageAssemblyCompletionHandler? = nil) {
         if message.header.sessionID != sessionID {
             print("Error: message part sent to wrong assembler.")
             return
-        }
-        
-        if messageParts != nil {
-            messageParts = [Int: Data]()
         }
         
         if message.header.frame.type == .first {
@@ -48,25 +47,25 @@ class SDLProtocolMessageInterpreter {
             expectedBytes = CFSwapInt32BigToHost(bytes[0])
             frameCount = CFSwapInt32BigToHost(bytes[1])
             
-            messageParts![kFirstFrameIdentifier] = message.payload
+            messageParts[FirstFrameIdentifier] = message.payload
             
         } else if message.header.frame.type == .consecutive {
-            messageParts![Int(message.header.frame.data.rawValue)] = message.payload
+            messageParts[Int(message.header.frame.data.rawValue)] = message.payload
         }
         
-        if messageParts!.count == Int(frameCount + 1) {
+        if messageParts.count == Int(frameCount + 1) {
             let header = message.header
             header.frame.type = .single
             header.frame.data = .control
             
             var payload = Data()
             for frame in 1 ..< frameCount {
-                if let data = messageParts![Int(frame)] {
+                if let data = messageParts[Int(frame)] {
                     payload.append(data)
                 }
             }
 
-            if let data = messageParts![0] {
+            if let data = messageParts[LastFrameIdentifier] {
                 payload.append(data)
             }
             
@@ -81,7 +80,9 @@ class SDLProtocolMessageInterpreter {
                 handler(complete: true, message: message)
             }
             
-            messageParts = nil
+            messageParts.removeAll()
+        } else {
+            handler?(complete: false, message: nil)
         }
     }
     
