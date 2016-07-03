@@ -22,7 +22,7 @@ protocol SDLMessageRouterProtocol {
 class SDLProtocolMessageRouter {
     var delegate: SDLMessageRouterProtocol?
     
-    private var interpreters = [UInt8 : SDLProtocolMessageInterpreter]()
+    private var interpreters = [UInt8 : SDLProtocolMessageAssembler]()
     
     init() { }
     
@@ -71,7 +71,7 @@ class SDLProtocolMessageRouter {
         var interpreter = interpreters[message.header.sessionID]
         
         if interpreter == nil {
-            interpreter = SDLProtocolMessageInterpreter(sessionID: message.header.sessionID)
+            interpreter = SDLProtocolMessageAssembler(sessionID: message.header.sessionID)
             interpreters[message.header.sessionID] = interpreter
         }
         
