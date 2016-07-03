@@ -1,5 +1,5 @@
 //
-//  SDLProtocolMessageInterpreter.swift
+//  SDLProtocolMessageAssembler.swift
 //  SmartDeviceLink
 //
 //  Created by Muller, Alexander (A.) on 6/27/16.
@@ -11,7 +11,7 @@ import Foundation
 typealias SDLMessageAssemblyCompletionHandler = (complete: Boolean, message: SDLProtocolMessage?) -> Void
 
 // In charge of both assembling and disassembling messages
-class SDLProtocolMessageInterpreter {
+class SDLProtocolMessageAssembler {
     
     let FirstFrameIdentifier: Int = -1
     let LastFrameIdentifier: Int = 0
