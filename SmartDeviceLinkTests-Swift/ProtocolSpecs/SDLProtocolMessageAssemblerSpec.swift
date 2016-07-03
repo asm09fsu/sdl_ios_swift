@@ -1,5 +1,5 @@
 //
-//  SDLProtocolMessageInterpreterSpec.swift
+//  SDLProtocolMessageAssemblerSpec.swift
 //  SmartDeviceLink
 //
 //  Created by Muller, Alexander (A.) on 7/2/16.
@@ -10,7 +10,7 @@ import Nimble
 import SmartDeviceLink
 import Quick
 
-class SDLProtocolMessageInterpreterSpec: QuickSpec {
+class SDLProtocolMessageAssemblerSpec: QuickSpec {
     override func spec() {
         describe("handle message tests") {
             
@@ -39,7 +39,7 @@ class SDLProtocolMessageInterpreterSpec: QuickSpec {
                 
                 let testMessage = SDLV2ProtocolMessage(header: testHeader, payload: firstPayload)
                 
-                let interpreter = SDLProtocolMessageInterpreter(sessionID: 0x16)
+                let interpreter = SDLProtocolMessageAssembler(sessionID: 0x16)
                 
                 var verified = false
                 
