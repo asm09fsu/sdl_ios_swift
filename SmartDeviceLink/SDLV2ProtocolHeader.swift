@@ -12,7 +12,7 @@ public class SDLV2ProtocolHeader: SDLProtocolHeader {
     
     public var messageID: UInt32 = 0
     
-    convenience init(version: UInt8) {
+    convenience init(version: UInt8 = 2) {
         self.init(size: 12, version: version)
     }
     
