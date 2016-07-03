@@ -13,9 +13,7 @@ import Quick
 class SDLProtocolMessageAssemblerSpec: QuickSpec {
     override func spec() {
         describe("handle message tests") {
-            
-            
-            beforeEach {
+            it("should assemble the message properly") {
                 let dataLength = 2000
                 
                 let dummyBytes = [UInt8](repeating: 0, count: dataLength)
@@ -91,10 +89,6 @@ class SDLProtocolMessageAssemblerSpec: QuickSpec {
                 }
                 
                 expect(verified).to(beTruthy())
-            }
-            
-            it("should assemble the message properly") {
-                
             }
         }
     }
