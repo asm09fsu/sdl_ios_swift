@@ -39,7 +39,7 @@ public class SDLProtocolMessage {
         }
     }
     
-    init(header: SDLProtocolHeader, payload: Data?) {
+    init(header: SDLProtocolHeader, payload: Data? = nil) {
         self.header = header
         self.payload = payload
     }

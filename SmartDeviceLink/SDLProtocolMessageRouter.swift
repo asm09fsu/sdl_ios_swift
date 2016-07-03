@@ -77,7 +77,7 @@ class SDLProtocolMessageRouter {
         
         interpreter?.assemble(message: message) { (complete, message) in
             if complete {
-                self.dispatchProtocolMessage(for: message)
+                self.dispatchProtocolMessage(for: message!)
             }
         }
     }
