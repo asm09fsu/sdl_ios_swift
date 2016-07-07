@@ -20,8 +20,8 @@ class SDLProtocolMessageAssemblerSpec: QuickSpec {
                 
                 let bytes: [UInt8] = [0x20, 0x55, 0x64, 0x73, 0x12, 0x34, 0x43, 0x21, UInt8((dataLength >> 24) & 0xFF), UInt8((dataLength >> 16) & 0xFF), UInt8((dataLength >> 8) & 0xFF), UInt8(dataLength & 0xFF)]
                 
-                var payloadData = Data(bytes: bytes)
-                payloadData.append(dummyBytes, count: dataLength)
+                var payload = Data(bytes: bytes)
+                payload.append(dummyBytes, count: dataLength)
                 
                 let testHeader = SDLV2ProtocolHeader()
                 
@@ -31,7 +31,7 @@ class SDLProtocolMessageAssemblerSpec: QuickSpec {
                 testHeader.sessionID = 0x16
                 testHeader.bytesInPayload = 8
                 
-                let firstPayloadBytes: [UInt8] = [UInt8((payloadData.count >> 24) & 0xFF), UInt8((payloadData.count >> 16) & 0xFF), UInt8((payloadData.count >> 8) & 0xFF), UInt8(payloadData.count & 0xFF), 0x00, 0x00, 0x00, UInt8(ceil(Double(payloadData.count) / 500.0))]
+                let firstPayloadBytes: [UInt8] = [UInt8((dataLength >> 24) & 0xFF), UInt8((dataLength >> 16) & 0xFF), UInt8((dataLength >> 8) & 0xFF), UInt8(dataLength & 0xFF), 0x00, 0x00, 0x00, UInt8(ceil(Double(dataLength) / 500.0))]
                 
                 let firstPayload = Data(bytes: firstPayloadBytes)
                 
@@ -59,9 +59,9 @@ class SDLProtocolMessageAssemblerSpec: QuickSpec {
                 var frameNumber: UInt8 = 1
                 var offset = 0
                 
-                while (offset + 500) < payloadData.count {
+                while (offset + 500) < dataLength {
                     testMessage.header.frame.data = SDLFrameData(rawValue: frameNumber)!
-                    testMessage.payload = payloadData.subdata(in: offset ..< (offset + 500))
+                    testMessage.payload = payload.subdata(in: offset ..< (offset + 500))
                     
                     interpreter.assemble(message: testMessage, handler: incompleteHandler)
                     
@@ -74,7 +74,7 @@ class SDLProtocolMessageAssemblerSpec: QuickSpec {
                 }
                 
                 testMessage.header.frame.data = .control
-                testMessage.payload = payloadData.subdata(in: offset ..< payloadData.count)
+                testMessage.payload = payload.subdata(in: offset ..< dataLength)
                 
                 interpreter.assemble(message: testMessage) { (complete, message) in
                     verified = true
@@ -85,7 +85,7 @@ class SDLProtocolMessageAssemblerSpec: QuickSpec {
                     expect(message!.header.frame.data).to(equal(SDLFrameData.control))
                     expect(message!.header.serviceType).to(equal(SDLServiceType.bulkData))
                     expect(message!.header.sessionID).to(equal(0x16))
-                    expect(message!.header.bytesInPayload).to(equal(UInt32(payloadData.count)))
+                    expect(message!.header.bytesInPayload).to(equal(UInt32(dataLength)))
                 }
                 
                 expect(verified).to(beTruthy())
