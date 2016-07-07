@@ -10,7 +10,6 @@ import Foundation
 
 typealias SDLMessageAssemblyCompletionHandler = (complete: Boolean, message: SDLProtocolMessage?) -> Void
 
-// In charge of both assembling and disassembling messages
 class SDLProtocolMessageAssembler {
     
     let FirstFrameIdentifier: Int = -1
@@ -85,8 +84,4 @@ class SDLProtocolMessageAssembler {
             handler?(complete: false, message: nil)
         }
     }
-    
-//    class func disassemble(_ message: SDLProtocolMessage, limit: Int) -> [SDLProtocolMessage] {
-//        
-//    }
 }
