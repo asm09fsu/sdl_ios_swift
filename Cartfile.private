@@ -2,5 +2,5 @@
 github "norio-nomura/Quick" "nn-swift-3-compatibility"
 #github "Quick/Nimble" ~> 4.0
 github "norio-nomura/Nimble" "nn-swift-3-compatibility"
-github "AliSoftware/OHHTTPStubs" ~> 5.0
+github "djbriane/OHHTTPStubs" "swift3"
 github "erikdoe/ocmock" ~> 3.3
