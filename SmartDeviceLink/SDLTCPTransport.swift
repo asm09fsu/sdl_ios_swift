@@ -30,7 +30,7 @@ public class SDLTCPTransport: SDLTransport {
         }
         
         var context = CFSocketContext(version: 0,
-                                      info: UnsafeMutablePointer(OpaquePointer(bitPattern: .passRetained(self))),
+                                      info: Unmanaged.toOpaque(.passRetained(self))(),
                                       retain: nil,
                                       release: nil,
                                       copyDescription: nil)
@@ -39,7 +39,7 @@ public class SDLTCPTransport: SDLTransport {
         
         socketObj = CFSocketCreateWithNative(kCFAllocatorDefault, socketId, CFSocketCallBackType.connectCallBack.rawValue | CFSocketCallBackType.dataCallBack.rawValue, socketCallback, &context)
         
-        let currentRunLoop = RunLoop.current().getCFRunLoop()
+        let currentRunLoop = RunLoop.current.getCFRunLoop()
         if let source = CFSocketCreateRunLoopSource(kCFAllocatorDefault, socketObj, 0) {
             CFRunLoopAddSource(currentRunLoop, source, .defaultMode)
         } else {
@@ -161,13 +161,13 @@ public class SDLTCPTransport: SDLTransport {
     
     private var socketCallback: CFSocketCallBack = { (socket: CFSocket?, callBack: CFSocketCallBackType, address: CFData?, data: UnsafePointer<Void>?, info: UnsafeMutablePointer<Void>?) -> Void in
         if let info = info {
-            let transport = Unmanaged<SDLTCPTransport>.fromOpaque(OpaquePointer(info)).takeUnretainedValue()
+            let transport = Unmanaged<SDLTCPTransport>.fromOpaque(info).takeUnretainedValue()
             if callBack == .connectCallBack {
                 transport.delegate?.connected(to: transport)
             } else if callBack == .dataCallBack {
                 if let data = data {
-                    let transport = Unmanaged<SDLTCPTransport>.fromOpaque(OpaquePointer(info)).takeUnretainedValue()
-                    let data = Unmanaged<CFData>.fromOpaque(OpaquePointer(data)).takeUnretainedValue() as Data
+                    let transport = Unmanaged<SDLTCPTransport>.fromOpaque(info).takeUnretainedValue()
+                    let data = Unmanaged<CFData>.fromOpaque(data).takeUnretainedValue() as Data
                     if data.count > 0 {
                         transport.delegate?.received(data)
                     } else {
