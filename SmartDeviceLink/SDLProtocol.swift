@@ -71,9 +71,9 @@ public class SDLProtocol {
     }
     
     public func startSession(for type: SDLServiceType) {
-        if let header = SDLProtocolHeader.header(for: type, sessionID: sdl_getSessionID(for: type)),
-            let message = SDLProtocolMessage.message(with: header)  {
-                send(data: message.data, for: type)
+        let header = SDLProtocolHeader(type: type, sessionID: sdl_getSessionID(for: type))
+        if let message = SDLProtocolMessage.message(with: header)  {
+            send(data: message.data, for: type)
         }
     }
     
@@ -97,38 +97,35 @@ public class SDLProtocol {
     // MARK: Private Functions
     private func sdl_processPendingMessages() {
         let incomingVersion = SDLProtocolMessage.version(from: incomingBuffer)
-        
-        if let header = SDLProtocolHeader.header(for: incomingVersion) {
-            if header.size <= incomingBuffer.count {
-                header.parse(incomingBuffer)
-            } else {
-                return
-            }
-            
-            let messageSize = header.size + Int(header.bytesInPayload)
-            var message: SDLProtocolMessage
-            if messageSize <= incomingBuffer.count {
-                let offset = header.size
-                let size = Int(header.bytesInPayload)
-                let payload = incomingBuffer.subdata(in: offset ..< (size + offset))
-                message = SDLProtocolMessage(header: header, payload: payload)
-                print("message complete.")
-            } else {
-                print("header complete. message incomplete, waiting for \(messageSize - incomingBuffer.count) more bytes.")
-                return
-            }
-            
-            incomingBuffer = incomingBuffer.subdata(in: message.size ..< incomingBuffer.count)
-            
-            receiveQueue.async {
-                self.messageRouter.handle(message)
-            }
-            
-            if incomingBuffer.count > 0 {
-                sdl_processPendingMessages()
-            }
+
+        let header = SDLProtocolHeader(version: incomingVersion)
+        if header.size <= incomingBuffer.count {
+            header.parse(incomingBuffer)
         } else {
             return
+        }
+        
+        let messageSize = header.size + Int(header.bytesInPayload)
+        var message: SDLProtocolMessage
+        if messageSize <= incomingBuffer.count {
+            let offset = header.size
+            let size = Int(header.bytesInPayload)
+            let payload = incomingBuffer.subdata(in: offset ..< (size + offset))
+            message = SDLProtocolMessage(header: header, payload: payload)
+            print("message complete.")
+        } else {
+            print("header complete. message incomplete, waiting for \(messageSize - incomingBuffer.count) more bytes.")
+            return
+        }
+        
+        incomingBuffer = incomingBuffer.subdata(in: message.size ..< incomingBuffer.count)
+        
+        receiveQueue.async {
+            self.messageRouter.handle(message)
+        }
+        
+        if incomingBuffer.count > 0 {
+            sdl_processPendingMessages()
         }
     }
     

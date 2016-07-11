@@ -22,8 +22,6 @@
 		DA38E6691D22089200BE68E4 /* SDLProtocolHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC304091D1E729300DE641B /* SDLProtocolHeader.swift */; };
 		DA38E66A1D22089500BE68E4 /* SDLProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC304071D1E715D00DE641B /* SDLProtocolMessage.swift */; };
 		DA38E66B1D22089B00BE68E4 /* SDLGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27396E1D1EDBF800631207 /* SDLGlobals.swift */; };
-		DA38E66C1D2208B400BE68E4 /* SDLV1ProtocolHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3040B1D1E735800DE641B /* SDLV1ProtocolHeader.swift */; };
-		DA38E66D1D2208B700BE68E4 /* SDLV2ProtocolHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3040D1D1E736400DE641B /* SDLV2ProtocolHeader.swift */; };
 		DA38E66E1D2208C100BE68E4 /* SDLV1ProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2739701D1EE74D00631207 /* SDLV1ProtocolMessage.swift */; };
 		DA38E66F1D2208C500BE68E4 /* SDLV2ProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2739721D1EE8A000631207 /* SDLV2ProtocolMessage.swift */; };
 		DA38E6711D2235EF00BE68E4 /* SDLDataPriorityObjectSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38E6701D2235EF00BE68E4 /* SDLDataPriorityObjectSpec.swift */; };
@@ -68,8 +66,6 @@
 		DAC028131D1FA84000210EF7 /* SDLProtocolMessageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC028121D1FA84000210EF7 /* SDLProtocolMessageRouter.swift */; };
 		DAC304081D1E715D00DE641B /* SDLProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC304071D1E715D00DE641B /* SDLProtocolMessage.swift */; };
 		DAC3040A1D1E729300DE641B /* SDLProtocolHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC304091D1E729300DE641B /* SDLProtocolHeader.swift */; };
-		DAC3040C1D1E735800DE641B /* SDLV1ProtocolHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3040B1D1E735800DE641B /* SDLV1ProtocolHeader.swift */; };
-		DAC3040E1D1E736400DE641B /* SDLV2ProtocolHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3040D1D1E736400DE641B /* SDLV2ProtocolHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,8 +158,6 @@
 		DAC028121D1FA84000210EF7 /* SDLProtocolMessageRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLProtocolMessageRouter.swift; sourceTree = "<group>"; };
 		DAC304071D1E715D00DE641B /* SDLProtocolMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLProtocolMessage.swift; sourceTree = "<group>"; };
 		DAC304091D1E729300DE641B /* SDLProtocolHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLProtocolHeader.swift; sourceTree = "<group>"; };
-		DAC3040B1D1E735800DE641B /* SDLV1ProtocolHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLV1ProtocolHeader.swift; sourceTree = "<group>"; };
-		DAC3040D1D1E736400DE641B /* SDLV2ProtocolHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLV2ProtocolHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,8 +292,6 @@
 				DA2D6EDC1D13E06300AF0A44 /* SDLProtocol.swift */,
 				DAC028121D1FA84000210EF7 /* SDLProtocolMessageRouter.swift */,
 				DAC304091D1E729300DE641B /* SDLProtocolHeader.swift */,
-				DAC3040B1D1E735800DE641B /* SDLV1ProtocolHeader.swift */,
-				DAC3040D1D1E736400DE641B /* SDLV2ProtocolHeader.swift */,
 				DAC304071D1E715D00DE641B /* SDLProtocolMessage.swift */,
 				DA2739701D1EE74D00631207 /* SDLV1ProtocolMessage.swift */,
 				DA2739721D1EE8A000631207 /* SDLV2ProtocolMessage.swift */,
@@ -485,10 +477,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA38E66C1D2208B400BE68E4 /* SDLV1ProtocolHeader.swift in Sources */,
 				DA38E6691D22089200BE68E4 /* SDLProtocolHeader.swift in Sources */,
 				DA67851B1D27804500006E04 /* SDLProtocolMessageAssembler.swift in Sources */,
-				DA38E66D1D2208B700BE68E4 /* SDLV2ProtocolHeader.swift in Sources */,
 				DA5857D41D2EB8E300A36D77 /* SDLProtocolMessageDisassembler.swift in Sources */,
 				DA38E66F1D2208C500BE68E4 /* SDLV2ProtocolMessage.swift in Sources */,
 				DA38E6681D22088F00BE68E4 /* SDLTransport.swift in Sources */,
@@ -511,7 +501,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAC3040E1D1E736400DE641B /* SDLV2ProtocolHeader.swift in Sources */,
 				DA5857D31D2EB4DF00A36D77 /* SDLProtocolMessageDisassembler.swift in Sources */,
 				DA2D6EDB1D13DE9700AF0A44 /* SDLProxy.swift in Sources */,
 				DA2D6EDD1D13E06300AF0A44 /* SDLProtocol.swift in Sources */,
@@ -529,7 +518,6 @@
 				DA2D6ED91D13D71E00AF0A44 /* SDLTransport.swift in Sources */,
 				DA27396F1D1EDBF800631207 /* SDLGlobals.swift in Sources */,
 				DA2739711D1EE74D00631207 /* SDLV1ProtocolMessage.swift in Sources */,
-				DAC3040C1D1E735800DE641B /* SDLV1ProtocolHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

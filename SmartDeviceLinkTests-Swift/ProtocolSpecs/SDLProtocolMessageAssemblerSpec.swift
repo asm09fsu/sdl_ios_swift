@@ -23,7 +23,7 @@ class SDLProtocolMessageAssemblerSpec: QuickSpec {
                 var payload = Data(bytes: bytes)
                 payload.append(dummyBytes, count: dataLength)
                 
-                let testHeader = SDLV2ProtocolHeader()
+                let testHeader = SDLProtocolHeader()
                 
                 testHeader.frame.type = .first
                 testHeader.frame.data = SDLFrameData.startSession
