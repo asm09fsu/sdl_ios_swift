@@ -46,7 +46,7 @@ public protocol SDLProtocolListener {
     func protocolClosed()
 }
 
-public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
+public class SDLProtocol {
 
     private var protocolDelegates = HashTable<AnyObject>()
     private var messageDelegates = HashTable<AnyObject>()
@@ -92,74 +92,6 @@ public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
                 }
             }
         }
-    }
-    
-    // MARK: SDLTransportDelegate
-    public func connected(to transport: SDLTransport) {
-        sdl_performOnProtocolListeners { (listener) in
-            listener.protocolOpened()
-        }
-    }
-    
-    public func disconnected(from transport: SDLTransport) {
-        sdl_performOnProtocolListeners { (listener) in
-            listener.protocolClosed()
-        }
-    }
-    
-    public func received(_ data: Data?) {
-        if let data = data {
-            print("Received \(data.count) bytes: \(data)")
-            incomingBuffer.append(data)
-            
-            sdl_processPendingMessages()
-        } else {
-            print("received empty data")
-        }
-    }
-    
-    // MARK: SDLMessageRouterProtocol
-    func handleProtocolStartSessionACK(for type: SDLServiceType, sessionID: UInt8, version: UInt8) {
-        switch type {
-        case .rpc:
-            currentSessionID = sessionID
-            SDLGlobals.maxHeadUnitVersion = UInt(version)
-            break
-        default:
-            break
-        }
-        
-        sdl_setSessionID(sessionID, for: type)
-        
-        sdl_performOnMessageRouterListeners { (listener) in
-            listener.handleProtocolStartSessionACK(for: type,
-                                                   sessionID: sessionID,
-                                                   version: version)
-        }
-    }
-    
-    func handleProtocolStartSessionNACK(for type: SDLServiceType) {
-        print("handleProtocolStartSessionNACK")
-    }
-    
-    func handleProtocolEndSessionACK(for type: SDLServiceType) {
-        print("handleProtocolEndSessionACK")
-    }
-    
-    func handleProtocolEndSessionNACK(for type: SDLServiceType) {
-        print("handleProtocolEndSessionNACK")
-    }
-    
-    func handleHeartbeat(for sessionID: UInt8) {
-        print("handleHeartbeat")
-    }
-    
-    func handleHeartbeatACK() {
-        print("handleHeartbeatACK")
-    }
-    
-    func protocolReceived(message: SDLProtocolMessage) {
-        print("protocolReceived")
     }
     
     // MARK: Private Functions
@@ -223,5 +155,77 @@ public class SDLProtocol: SDLTransportDelegate, SDLMessageRouterProtocol {
         for case let listener as SDLMessageRouterProtocol in messageDelegates.allObjects {
             block(listener: listener)
         }
+    }
+}
+
+// MARK: SDLTransportDelegate
+extension SDLProtocol: SDLTransportDelegate {
+    public func connected(to transport: SDLTransport) {
+        sdl_performOnProtocolListeners { (listener) in
+            listener.protocolOpened()
+        }
+    }
+    
+    public func disconnected(from transport: SDLTransport) {
+        sdl_performOnProtocolListeners { (listener) in
+            listener.protocolClosed()
+        }
+    }
+    
+    public func received(_ data: Data?) {
+        if let data = data {
+            print("Received \(data.count) bytes: \(data)")
+            incomingBuffer.append(data)
+            
+            sdl_processPendingMessages()
+        } else {
+            print("received empty data")
+        }
+    }
+}
+
+// MARK: SDLMessageRouterProtocol
+extension  SDLProtocol: SDLMessageRouterProtocol {
+    func handleProtocolStartSessionACK(for type: SDLServiceType, sessionID: UInt8, version: UInt8) {
+        switch type {
+        case .rpc:
+            currentSessionID = sessionID
+            SDLGlobals.maxHeadUnitVersion = UInt(version)
+            break
+        default:
+            break
+        }
+        
+        sdl_setSessionID(sessionID, for: type)
+        
+        sdl_performOnMessageRouterListeners { (listener) in
+            listener.handleProtocolStartSessionACK(for: type,
+                                                   sessionID: sessionID,
+                                                   version: version)
+        }
+    }
+    
+    func handleProtocolStartSessionNACK(for type: SDLServiceType) {
+        print("handleProtocolStartSessionNACK")
+    }
+    
+    func handleProtocolEndSessionACK(for type: SDLServiceType) {
+        print("handleProtocolEndSessionACK")
+    }
+    
+    func handleProtocolEndSessionNACK(for type: SDLServiceType) {
+        print("handleProtocolEndSessionNACK")
+    }
+    
+    func handleHeartbeat(for sessionID: UInt8) {
+        print("handleHeartbeat")
+    }
+    
+    func handleHeartbeatACK() {
+        print("handleHeartbeatACK")
+    }
+    
+    func protocolReceived(message: SDLProtocolMessage) {
+        print("protocolReceived")
     }
 }

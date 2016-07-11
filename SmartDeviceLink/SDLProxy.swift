@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SDLProxy: SDLProtocolListener, SDLMessageRouterProtocol {
+public class SDLProxy {
     private let transport: SDLTransport
     private let `protocol`: SDLProtocol
     
@@ -22,18 +22,22 @@ public class SDLProxy: SDLProtocolListener, SDLMessageRouterProtocol {
         
         self.transport.connectTransport()
     }
-    
-    // MARK: SDLProtocolListener
+}
+
+// MARK: SDLProtocolListener
+extension SDLProxy: SDLProtocolListener {
     public func protocolOpened() {
         print("protocolOpenend")
         `protocol`.startSession(for: .rpc)
     }
     
     public func protocolClosed() {
-        print("protocolClosed")        
+        print("protocolClosed")
     }
-    
-    // MARK: SDLMessageRouterProtocol
+}
+
+// MARK: SDLMessageRouterProtocol
+extension SDLProxy: SDLMessageRouterProtocol {
     func handleProtocolStartSessionACK(for type: SDLServiceType, sessionID: UInt8, version: UInt8) {
         print("handleProtocolStartSessionACK")
     }
