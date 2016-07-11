@@ -16,6 +16,13 @@ public class SDLV2ProtocolHeader: SDLProtocolHeader {
         self.init(size: 12, version: version)
     }
     
+    public override var data: Data {
+        var data = super.data
+        data.append(CFSwapInt32HostToBig(messageID))
+        
+        return data
+    }
+    
     public override func parse(_ data: Data) {
         super.parse(data)
         

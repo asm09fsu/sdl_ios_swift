@@ -31,8 +31,22 @@ public class SDLProtocolHeader {
     public var bytesInPayload: UInt32 = 0
     public var encrypted = false
     
-    public var data: Data? {
-        return nil
+    public var data: Data {
+        if var data = Data(capacity: size) {
+            let version: UInt8 = (self.version & 0xF) << 4
+            let encrypted: UInt8 = (self.encrypted ? 1 : 0) << 3
+            let frameType: UInt8 = frame.type.rawValue & 0x7
+            
+            data.append(version | encrypted | frameType)
+            data.append(serviceType.rawValue)
+            data.append(frame.data)
+            data.append(sessionID)
+            data.append(CFSwapInt32HostToBig(bytesInPayload))
+            
+            return data
+        } else {
+            assert(false, "could not initialize data with capacity \(size)")
+        }
     }
     
     init(size: Int, version: UInt8) {

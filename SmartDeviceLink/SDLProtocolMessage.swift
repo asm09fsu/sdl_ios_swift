@@ -22,9 +22,9 @@ public class SDLProtocolMessage {
     
     public var data: Data? {
         var data = Data(capacity: size)
-        if let headerData = header.data {
-            data?.append(headerData)
-        }
+        
+        data?.append(header.data)
+        
         if let payload = payload {
             data?.append(payload)
         }
