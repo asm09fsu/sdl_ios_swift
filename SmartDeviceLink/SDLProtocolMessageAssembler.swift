@@ -49,13 +49,13 @@ class SDLProtocolMessageAssembler {
             messageParts[FirstFrameIdentifier] = message.payload
             
         } else if message.header.frame.type == .consecutive {
-            messageParts[Int(message.header.frame.data.rawValue)] = message.payload
+            messageParts[Int(message.header.frame.data)] = message.payload
         }
         
         if messageParts.count == Int(frameCount + 1) {
             let header = message.header
             header.frame.type = .single
-            header.frame.data = .control
+            header.frame.data = SDLFrameData.singleFrame
             
             var payload = Data()
             for frame in 1 ..< frameCount {

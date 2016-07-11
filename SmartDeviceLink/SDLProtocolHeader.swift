@@ -11,7 +11,7 @@ import Foundation
 public class SDLProtocolHeader {
     public struct Frame {
         public var type: SDLFrameType = .control
-        public var data: SDLFrameData = .control
+        public var data: UInt8 = 0
     }
     
     private var _size: Int = 0
@@ -49,7 +49,7 @@ public class SDLProtocolHeader {
             default: break
         }
         
-        header?.frame.data = .startSession
+        header?.frame.data = SDLFrameData.startSession
         header?.serviceType = type
         header?.sessionID = sessionID
         
@@ -76,7 +76,7 @@ public class SDLProtocolHeader {
         encrypted = (firstByte & 0x08) != 0
         frame.type = SDLFrameType(rawValue: (firstByte & 0x07))!
         serviceType = SDLServiceType(rawValue: data[1])!
-        frame.data = SDLFrameData(rawValue: data[2])!
+        frame.data = data[2]
         sessionID = data[3]
     }
 }

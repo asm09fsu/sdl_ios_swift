@@ -26,7 +26,7 @@ class SDLProtocolMessageAssemblerSpec: QuickSpec {
                 let testHeader = SDLV2ProtocolHeader()
                 
                 testHeader.frame.type = .first
-                testHeader.frame.data = .startSession
+                testHeader.frame.data = SDLFrameData.startSession
                 testHeader.serviceType = .bulkData
                 testHeader.sessionID = 0x16
                 testHeader.bytesInPayload = 8
@@ -60,7 +60,7 @@ class SDLProtocolMessageAssemblerSpec: QuickSpec {
                 var offset = 0
                 
                 while (offset + 500) < dataLength {
-                    testMessage.header.frame.data = SDLFrameData(rawValue: frameNumber)!
+                    testMessage.header.frame.data = frameNumber
                     testMessage.payload = payload.subdata(in: offset ..< (offset + 500))
                     
                     interpreter.assemble(message: testMessage, handler: incompleteHandler)
@@ -73,7 +73,7 @@ class SDLProtocolMessageAssemblerSpec: QuickSpec {
                     
                 }
                 
-                testMessage.header.frame.data = .control
+                testMessage.header.frame.data = SDLFrameData.singleFrame
                 testMessage.payload = payload.subdata(in: offset ..< dataLength)
                 
                 interpreter.assemble(message: testMessage) { (complete, message) in
@@ -82,7 +82,7 @@ class SDLProtocolMessageAssemblerSpec: QuickSpec {
                     expect(complete).to(beTruthy())
                     
                     expect(message!.header.frame.type).to(equal(SDLFrameType.single))
-                    expect(message!.header.frame.data).to(equal(SDLFrameData.control))
+                    expect(message!.header.frame.data).to(equal(SDLFrameData.singleFrame))
                     expect(message!.header.serviceType).to(equal(SDLServiceType.bulkData))
                     expect(message!.header.sessionID).to(equal(0x16))
                     expect(message!.header.bytesInPayload).to(equal(UInt32(dataLength)))

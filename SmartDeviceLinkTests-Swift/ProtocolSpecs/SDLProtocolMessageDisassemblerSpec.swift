@@ -31,7 +31,7 @@ class SDLProtocolMessageDisassemblerSpec : QuickSpec {
 
                 let testHeader = SDLV2ProtocolHeader()
                 testHeader.frame.type = .single
-                testHeader.frame.data = .control
+                testHeader.frame.data = SDLFrameData.singleFrame
                 testHeader.serviceType = .bulkData
                 testHeader.sessionID = 0x84
                 testHeader.bytesInPayload = UInt32(payload.count)
@@ -41,7 +41,7 @@ class SDLProtocolMessageDisassemblerSpec : QuickSpec {
                 if let messages = SDLProtocolMessageDisassembler.disassemble(testMessage, limit: SDLGlobals.maxMTUSize) {
                     let payloadLength = 1012
                     
-                    let firstPayloadBytes: [UInt8] = [UInt8((dataLength >> 24) & 0xFF), UInt8((dataLength >> 16) & 0xFF), UInt8((dataLength >> 8) & 0xFF), UInt8(dataLength & 0xFF), 0x00, 0x00, 0x00, UInt8(ceil(1.0 * Double( dataLength / payloadLength)))]
+                    let firstPayloadBytes: [UInt8] = [UInt8((payload.count >> 24) & 0xFF), UInt8((payload.count >> 16) & 0xFF), UInt8((payload.count >> 8) & 0xFF), UInt8(payload.count & 0xFF), 0x00, 0x00, 0x00, UInt8(ceil(Double((1.0 * Double(payload.count)) / Double(payloadLength))))]
                     
                     let firstPayload = Data(bytes: firstPayloadBytes)
                     
@@ -50,7 +50,7 @@ class SDLProtocolMessageDisassemblerSpec : QuickSpec {
                         expect(message.payload).to(equal(firstPayload))
                         var header = message.header
                         expect(header.frame.type).to(equal(SDLFrameType.first))
-                        expect(header.frame.data).to(equal(SDLFrameData.control))
+                        expect(header.frame.data).to(equal(SDLFrameData.firstFrame))
                         expect(header.serviceType).to(equal(SDLServiceType.bulkData))
                         expect(header.sessionID).to(equal(0x84))
                         expect(header.bytesInPayload).to(equal(8))
@@ -61,10 +61,10 @@ class SDLProtocolMessageDisassemblerSpec : QuickSpec {
                         for index in 1 ..< (messages.count - 1) {
                             message = messages[index]
                             
-                            expect(message.payload).to(equal(payload.subdata(in: offset ..< (payloadLength - offset))))
+                            expect(message.payload).to(equal(payload.subdata(in: offset ..< payloadLength)))
                             let header = message.header
                             expect(header.frame.type).to(equal(SDLFrameType.consecutive))
-                            expect(header.frame.data).to(equal(SDLFrameData(rawValue: UInt8(index))))
+                            expect(header.frame.data).to(equal(UInt8(index)))
                             expect(header.serviceType).to(equal(SDLServiceType.bulkData))
                             expect(header.sessionID).to(equal(0x84))
                             expect(header.bytesInPayload).to(equal(UInt32(payloadLength)))
@@ -74,17 +74,15 @@ class SDLProtocolMessageDisassemblerSpec : QuickSpec {
                         
                         message = messages.last!
                         
-                        let remaining = payload.count - offset
-                        
                         // Last Frame
-                        expect(message.payload).to(equal(payload.subdata(in: offset ..< remaining)))
+                        expect(message.payload).to(equal(payload.subdata(in: offset ..< payload.count)))
                         
                         header = message.header
                         expect(header.frame.type).to(equal(SDLFrameType.consecutive))
-                        expect(header.frame.data).to(equal(SDLFrameData.control))
+                        expect(header.frame.data).to(equal(SDLFrameData.lastConsecutiveFrame))
                         expect(header.serviceType).to(equal(SDLServiceType.bulkData))
                         expect(header.sessionID).to(equal(0x84))
-                        expect(header.bytesInPayload).to(equal(UInt32(remaining)))
+                        expect(header.bytesInPayload).to(equal(UInt32(payload.count - offset)))
                         
                     } else {
                         fail("messages list did not contain any messages")

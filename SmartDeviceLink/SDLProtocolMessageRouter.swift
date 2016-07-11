@@ -42,24 +42,24 @@ class SDLProtocolMessageRouter {
         
     private func dispatchControlMessage(for message: SDLProtocolMessage) {
         switch message.header.frame.data {
-        case .control:
+        case SDLFrameData.heartbeat:
             delegate?.handleHeartbeat(for: message.header.sessionID)
             break
-        case .heartbeatACK:
+        case SDLFrameData.heartbeatACK:
             delegate?.handleHeartbeatACK()
             break
-        case .startSessionACK:
+        case SDLFrameData.startSessionACK:
             delegate?.handleProtocolStartSessionACK(for: message.header.serviceType,
                                                     sessionID: message.header.sessionID,
                                                     version: message.header.version)
             break
-        case .startSessionNACK:
+        case SDLFrameData.startSessionNACK:
             delegate?.handleProtocolStartSessionNACK(for: message.header.serviceType)
             break
-        case .endSessionACK:
+        case SDLFrameData.endSessionACK:
             delegate?.handleProtocolEndSessionACK(for: message.header.serviceType)
             break
-        case .endSessionNACK:
+        case SDLFrameData.endSessionNACK:
             delegate?.handleProtocolEndSessionNACK(for: message.header.serviceType)
             break
         default:
