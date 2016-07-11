@@ -94,3 +94,14 @@ public class SDLProtocolHeader {
         sessionID = data[3]
     }
 }
+
+extension SDLProtocolHeader: NSCopying {
+    public func copy(with zone: NSZone? = nil) -> AnyObject {
+        let header = SDLProtocolHeader.header(for: self.serviceType, sessionID: self.sessionID)!
+        header.frame.data = self.frame.data
+        header.frame.type = self.frame.type
+        header.encrypted = self.encrypted
+        header.bytesInPayload = self.bytesInPayload
+        return header
+    }
+}
