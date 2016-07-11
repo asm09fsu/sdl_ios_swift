@@ -54,3 +54,9 @@ public class SDLProtocolMessage {
         }
     }
 }
+
+extension SDLProtocolMessage: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        return "Version: \(header.version), sessionID: \(header.sessionID), encrypted: \(header.encrypted), frame: (type: \(header.frame.type), data: \(header.frame.data)), serviceType: \(header.serviceType), payload: \(payload!.count) bytes"
+    }
+}
