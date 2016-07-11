@@ -16,16 +16,22 @@ public enum SDLServiceType: UInt8 {
     case bulkData = 0x0F
 }
 
-public enum SDLFrameData: UInt8 {
-    case control = 0x00
-    case startSession = 0x01
-    case startSessionACK = 0x02
-    case startSessionNACK = 0x03
-    case endSession = 0x04
-    case endSessionACK = 0x05
-    case endSessionNACK = 0x06
-    case serviceDataACK = 0xFE
-    case heartbeatACK = 0xFF
+public struct SDLFrameData {
+    public static let heartbeat: UInt8 = 0x00
+    public static let startSession: UInt8 = 0x01
+    public static let startSessionACK: UInt8 = 0x02
+    public static let startSessionNACK: UInt8 = 0x03
+    public static let endSession: UInt8 = 0x04
+    public static let endSessionACK: UInt8 = 0x05
+    public static let endSessionNACK: UInt8 = 0x06
+    public static let serviceDataACK: UInt8 = 0xFE
+    public static let heartbeatACK: UInt8 = 0xFF
+
+    public static let singleFrame: UInt8 = 0x00
+    public static let firstFrame: UInt8 = 0x00
+    public static let lastConsecutiveFrame: UInt8 = 0x00
+    
+    
 }
 
 public enum SDLFrameType: UInt8 {
