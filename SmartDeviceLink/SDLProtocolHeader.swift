@@ -74,9 +74,7 @@ public class SDLProtocolHeader {
         frame.data = data[2]
         sessionID = data[3]
         
-        let pointer = UnsafeMutablePointer<UInt32>(allocatingCapacity: size)
-        let bytes = UnsafeMutableBufferPointer<UInt32>(start: pointer, count: size)
-        _ = data.copyBytes(to: bytes)
+        let bytes = data.bufferPointer()
         
         bytesInPayload = CFSwapInt32BigToHost(bytes[1])
 

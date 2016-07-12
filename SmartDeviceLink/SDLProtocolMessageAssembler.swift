@@ -38,11 +38,11 @@ class SDLProtocolMessageAssembler {
         
         if message.header.frame.type == .first {
             
-            let pointer = UnsafeMutablePointer<UInt32>(allocatingCapacity: message.size)
-            let bytes = UnsafeMutableBufferPointer<UInt32>(start: pointer, count: message.size)
-            _ = message.payload?.copyBytes(to: bytes)
-            
-            
+            guard let bytes = message.payload?.bufferPointer() else {
+                print("Error: could not convert data")
+                return
+            }
+
             expectedBytes = CFSwapInt32BigToHost(bytes[0])
             frameCount = CFSwapInt32BigToHost(bytes[1])
             
