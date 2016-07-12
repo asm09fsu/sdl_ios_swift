@@ -93,6 +93,7 @@ extension SDLProtocolHeader: NSCopying {
         header.frame.type = self.frame.type
         header.encrypted = self.encrypted
         header.bytesInPayload = self.bytesInPayload
+        header.messageID = self.messageID
         return header
     }
 }
