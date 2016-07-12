@@ -21,4 +21,11 @@ public extension Data {
         var uint8 = uint8
         self.append(&uint8, count: 1)
     }
+    
+    func bufferPointer() -> UnsafeMutableBufferPointer<UInt32> {
+        let pointer = UnsafeMutablePointer<UInt32>(allocatingCapacity: self.count)
+        let bytes = UnsafeMutableBufferPointer<UInt32>(start: pointer, count: self.count)
+        _ = self.copyBytes(to: bytes)
+        return bytes
+    }
 }
