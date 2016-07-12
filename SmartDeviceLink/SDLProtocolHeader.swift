@@ -54,13 +54,7 @@ public class SDLProtocolHeader {
         }
     }
     
-//    init(size: Int, version: UInt8) {
-//        _size = size
-//        _version = version
-//    }
-    
     init(version: UInt8 = UInt8(SDLGlobals.protocolVersion), type: SDLServiceType = .control, sessionID: UInt8 = 0) {
-//        _version = UInt8(SDLGlobals.protocolVersion)
         _version = version
         if version < 2 {
             _size = 8
@@ -71,37 +65,6 @@ public class SDLProtocolHeader {
         serviceType = type
         self.sessionID = sessionID
     }
-    
-//    public class func header(for type: SDLServiceType, sessionID: UInt8) -> SDLProtocolHeader? {
-//        var header = self.header(for: SDLGlobals.protocolVersion)
-//        
-//        switch type {
-//            case .rpc:
-//                header = SDLV1ProtocolHeader()
-//            default: break
-//        }
-//        
-//        header?.frame.data = SDLFrameData.startSession
-//        header?.serviceType = type
-//        header?.sessionID = sessionID
-//        
-//        return header
-//    }
-    
-//    public class func header(for version: UInt) -> SDLProtocolHeader? {
-//        return header(for: UInt8(version))
-//    }
-//    
-//    public class func header(for version: UInt8) -> SDLProtocolHeader? {
-//        switch version {
-//            case 1:
-//                return SDLV1ProtocolHeader()
-//            case 2, 3, 4:
-//                return SDLV2ProtocolHeader(version: version)
-//            default:
-//                return nil
-//        }
-//    }
     
     public func parse(_ data: Data) {
         let firstByte = data[0]
@@ -125,7 +88,6 @@ public class SDLProtocolHeader {
 
 extension SDLProtocolHeader: NSCopying {
     public func copy(with zone: NSZone? = nil) -> AnyObject {
-//        let header = SDLProtocolHeader.header(for: self.serviceType, sessionID: self.sessionID)!
         let header = SDLProtocolHeader(version: self.version, type: self.serviceType, sessionID: self.sessionID)
         header.frame.data = self.frame.data
         header.frame.type = self.frame.type
