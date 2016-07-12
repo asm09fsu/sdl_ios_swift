@@ -49,6 +49,9 @@
 		DA8B099E1D1FC3B800DA9827 /* OHHTTPStubs.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B098A1D1FC32D00DA9827 /* OHHTTPStubs.framework.dSYM */; };
 		DA8B099F1D1FC3B800DA9827 /* Quick.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B098C1D1FC32D00DA9827 /* Quick.framework.dSYM */; };
 		DA9A78331D343C2C0012CD88 /* SDLProtocolHeaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9A78321D343C2C0012CD88 /* SDLProtocolHeaderSpec.swift */; };
+		DAAF02111D355372009D4C0C /* SDLRPCPayloadSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF02101D355372009D4C0C /* SDLRPCPayloadSpec.swift */; };
+		DAAF02131D3556C9009D4C0C /* SDLRPCPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF02121D3556C9009D4C0C /* SDLRPCPayload.swift */; };
+		DAAF02141D3556CD009D4C0C /* SDLRPCPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF02121D3556C9009D4C0C /* SDLRPCPayload.swift */; };
 		DAB4AA451D1369C100837510 /* SmartDeviceLink.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB4AA441D1369C100837510 /* SmartDeviceLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB4AA4D1D1369DD00837510 /* SDLHexUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4AA4C1D1369DD00837510 /* SDLHexUtility.swift */; };
 		DAB4AA4F1D1369F300837510 /* SDLDebugTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4AA4E1D1369F300837510 /* SDLDebugTool.swift */; };
@@ -137,6 +140,8 @@
 		DA8B098B1D1FC32D00DA9827 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 		DA8B098C1D1FC32D00DA9827 /* Quick.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Quick.framework.dSYM; path = Carthage/Build/iOS/Quick.framework.dSYM; sourceTree = SOURCE_ROOT; };
 		DA9A78321D343C2C0012CD88 /* SDLProtocolHeaderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLProtocolHeaderSpec.swift; sourceTree = "<group>"; };
+		DAAF02101D355372009D4C0C /* SDLRPCPayloadSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLRPCPayloadSpec.swift; sourceTree = "<group>"; };
+		DAAF02121D3556C9009D4C0C /* SDLRPCPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLRPCPayload.swift; sourceTree = "<group>"; };
 		DAB4AA411D1369C100837510 /* SmartDeviceLink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SmartDeviceLink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB4AA441D1369C100837510 /* SmartDeviceLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartDeviceLink.h; sourceTree = "<group>"; };
 		DAB4AA461D1369C100837510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -216,6 +221,7 @@
 		DA747A131D21E4E0002892C4 /* RPCSpecs */ = {
 			isa = PBXGroup;
 			children = (
+				DAAF020F1D355360009D4C0C /* PayloadSpecs */,
 			);
 			path = RPCSpecs;
 			sourceTree = "<group>";
@@ -265,6 +271,14 @@
 			path = HeaderSpecs;
 			sourceTree = "<group>";
 		};
+		DAAF020F1D355360009D4C0C /* PayloadSpecs */ = {
+			isa = PBXGroup;
+			children = (
+				DAAF02101D355372009D4C0C /* SDLRPCPayloadSpec.swift */,
+			);
+			path = PayloadSpecs;
+			sourceTree = "<group>";
+		};
 		DAB4AA371D1369C100837510 = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +318,7 @@
 				DA747A171D21F05C002892C4 /* SDLDataPriorityQueue.swift */,
 				DA5C461E1D223EC10080D190 /* SDLProtocolMessageAssembler.swift */,
 				DA5857D21D2EB4DF00A36D77 /* SDLProtocolMessageDisassembler.swift */,
+				DAAF02121D3556C9009D4C0C /* SDLRPCPayload.swift */,
 				DAB4AA461D1369C100837510 /* Info.plist */,
 			);
 			path = SmartDeviceLink;
@@ -486,9 +501,11 @@
 				DA38E6681D22088F00BE68E4 /* SDLTransport.swift in Sources */,
 				DA9A78331D343C2C0012CD88 /* SDLProtocolHeaderSpec.swift in Sources */,
 				DA38E6631D22048400BE68E4 /* SDLDataPriorityQueueSpec.swift in Sources */,
+				DAAF02141D3556CD009D4C0C /* SDLRPCPayload.swift in Sources */,
 				DA38E6651D22086500BE68E4 /* SDLProtocol.swift in Sources */,
 				DA38E66B1D22089B00BE68E4 /* SDLGlobals.swift in Sources */,
 				DA747A161D21E4E0002892C4 /* SDLGlobalsSpec.swift in Sources */,
+				DAAF02111D355372009D4C0C /* SDLRPCPayloadSpec.swift in Sources */,
 				DA38E6661D22088500BE68E4 /* SDLTransportDelegate.swift in Sources */,
 				DA38E6671D22088900BE68E4 /* SDLProtocolMessageRouter.swift in Sources */,
 				DA38E6711D2235EF00BE68E4 /* SDLDataPriorityObjectSpec.swift in Sources */,
@@ -503,6 +520,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAAF02131D3556C9009D4C0C /* SDLRPCPayload.swift in Sources */,
 				DA5857D31D2EB4DF00A36D77 /* SDLProtocolMessageDisassembler.swift in Sources */,
 				DA2D6EDB1D13DE9700AF0A44 /* SDLProxy.swift in Sources */,
 				DA2D6EDD1D13E06300AF0A44 /* SDLProtocol.swift in Sources */,
