@@ -44,7 +44,7 @@ public class SDLProtocolHeader {
             data.append(sessionID)
             data.append(CFSwapInt32HostToBig(bytesInPayload))
             
-            if version >= 2 {
+            if self.version >= 2 {
                 data.append(CFSwapInt32HostToBig(messageID))
             }
             
@@ -56,7 +56,7 @@ public class SDLProtocolHeader {
     
     init(version: UInt8 = UInt8(SDLGlobals.protocolVersion), type: SDLServiceType = .control, sessionID: UInt8 = 0) {
         _version = version
-        if version < 2 {
+        if self.version < 2 {
             _size = 8
         } else {
             _size = 12
