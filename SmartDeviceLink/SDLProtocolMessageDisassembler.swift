@@ -26,9 +26,9 @@ class SDLProtocolMessageDisassembler {
         firstFrameHeader.frame.type = .first
         
         var firstFramePayload = Data()
-        firstFramePayload.append(UInt32(message.payload!.count))
-        firstFramePayload.append(UInt32(numberOfMessages))
-                
+        firstFramePayload.append(CFSwapInt32HostToBig(UInt32(message.payload!.count)))
+        firstFramePayload.append(CFSwapInt32HostToBig(UInt32(numberOfMessages)))
+        
         firstFrameHeader.bytesInPayload = UInt32(firstFramePayload.count)
         
         let firstMessage = SDLProtocolMessage(header: firstFrameHeader, payload: firstFramePayload)

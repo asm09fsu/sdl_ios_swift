@@ -9,10 +9,10 @@
 import Foundation
 
 public extension Data {
-    mutating func append(_ uint32: UInt32) {
-        var bigEndian = uint32.bigEndian
-        let bytePtr = withUnsafePointer(&bigEndian) {
-            UnsafeBufferPointer<UInt8>(start: UnsafePointer($0), count: sizeofValue(bigEndian))
+    mutating func append( _ uint32: UInt32) {
+        var uint32 = uint32
+        let bytePtr = withUnsafePointer(&uint32) {
+            UnsafeBufferPointer<UInt8>(start: UnsafePointer($0), count: sizeofValue(uint32))
         }
         self.append(bytePtr)
     }
