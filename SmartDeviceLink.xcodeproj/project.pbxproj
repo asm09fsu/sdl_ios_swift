@@ -52,6 +52,7 @@
 		DA8B099D1D1FC3B800DA9827 /* OCMock.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B09881D1FC32D00DA9827 /* OCMock.framework.dSYM */; };
 		DA8B099E1D1FC3B800DA9827 /* OHHTTPStubs.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B098A1D1FC32D00DA9827 /* OHHTTPStubs.framework.dSYM */; };
 		DA8B099F1D1FC3B800DA9827 /* Quick.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA8B098C1D1FC32D00DA9827 /* Quick.framework.dSYM */; };
+		DA9A78331D343C2C0012CD88 /* SDLProtocolHeaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9A78321D343C2C0012CD88 /* SDLProtocolHeaderSpec.swift */; };
 		DAB4AA451D1369C100837510 /* SmartDeviceLink.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB4AA441D1369C100837510 /* SmartDeviceLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB4AA4D1D1369DD00837510 /* SDLHexUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4AA4C1D1369DD00837510 /* SDLHexUtility.swift */; };
 		DAB4AA4F1D1369F300837510 /* SDLDebugTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4AA4E1D1369F300837510 /* SDLDebugTool.swift */; };
@@ -141,6 +142,7 @@
 		DA8B098A1D1FC32D00DA9827 /* OHHTTPStubs.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OHHTTPStubs.framework.dSYM; path = Carthage/Build/iOS/OHHTTPStubs.framework.dSYM; sourceTree = SOURCE_ROOT; };
 		DA8B098B1D1FC32D00DA9827 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 		DA8B098C1D1FC32D00DA9827 /* Quick.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Quick.framework.dSYM; path = Carthage/Build/iOS/Quick.framework.dSYM; sourceTree = SOURCE_ROOT; };
+		DA9A78321D343C2C0012CD88 /* SDLProtocolHeaderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLProtocolHeaderSpec.swift; sourceTree = "<group>"; };
 		DAB4AA411D1369C100837510 /* SmartDeviceLink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SmartDeviceLink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB4AA441D1369C100837510 /* SmartDeviceLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartDeviceLink.h; sourceTree = "<group>"; };
 		DAB4AA461D1369C100837510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		DA747A111D21E4E0002892C4 /* ProtocolSpecs */ = {
 			isa = PBXGroup;
 			children = (
+				DA9A78311D343C1A0012CD88 /* HeaderSpecs */,
 				DA67851C1D27807C00006E04 /* SDLProtocolMessageAssemblerSpec.swift */,
 				DA5857D01D2EB4CE00A36D77 /* SDLProtocolMessageDisassemblerSpec.swift */,
 			);
@@ -258,6 +261,14 @@
 				DA8B098C1D1FC32D00DA9827 /* Quick.framework.dSYM */,
 			);
 			name = Libraries;
+			sourceTree = "<group>";
+		};
+		DA9A78311D343C1A0012CD88 /* HeaderSpecs */ = {
+			isa = PBXGroup;
+			children = (
+				DA9A78321D343C2C0012CD88 /* SDLProtocolHeaderSpec.swift */,
+			);
+			path = HeaderSpecs;
 			sourceTree = "<group>";
 		};
 		DAB4AA371D1369C100837510 = {
@@ -482,6 +493,7 @@
 				DA5857D41D2EB8E300A36D77 /* SDLProtocolMessageDisassembler.swift in Sources */,
 				DA38E66F1D2208C500BE68E4 /* SDLV2ProtocolMessage.swift in Sources */,
 				DA38E6681D22088F00BE68E4 /* SDLTransport.swift in Sources */,
+				DA9A78331D343C2C0012CD88 /* SDLProtocolHeaderSpec.swift in Sources */,
 				DA38E6631D22048400BE68E4 /* SDLDataPriorityQueueSpec.swift in Sources */,
 				DA38E6651D22086500BE68E4 /* SDLProtocol.swift in Sources */,
 				DA38E66B1D22089B00BE68E4 /* SDLGlobals.swift in Sources */,
