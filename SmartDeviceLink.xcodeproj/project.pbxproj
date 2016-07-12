@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DA27396F1D1EDBF800631207 /* SDLGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27396E1D1EDBF800631207 /* SDLGlobals.swift */; };
-		DA2739711D1EE74D00631207 /* SDLV1ProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2739701D1EE74D00631207 /* SDLV1ProtocolMessage.swift */; };
-		DA2739731D1EE8A000631207 /* SDLV2ProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2739721D1EE8A000631207 /* SDLV2ProtocolMessage.swift */; };
 		DA2D6ED91D13D71E00AF0A44 /* SDLTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D6ED81D13D71E00AF0A44 /* SDLTransport.swift */; };
 		DA2D6EDB1D13DE9700AF0A44 /* SDLProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D6EDA1D13DE9700AF0A44 /* SDLProxy.swift */; };
 		DA2D6EDD1D13E06300AF0A44 /* SDLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D6EDC1D13E06300AF0A44 /* SDLProtocol.swift */; };
@@ -22,8 +20,6 @@
 		DA38E6691D22089200BE68E4 /* SDLProtocolHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC304091D1E729300DE641B /* SDLProtocolHeader.swift */; };
 		DA38E66A1D22089500BE68E4 /* SDLProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC304071D1E715D00DE641B /* SDLProtocolMessage.swift */; };
 		DA38E66B1D22089B00BE68E4 /* SDLGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27396E1D1EDBF800631207 /* SDLGlobals.swift */; };
-		DA38E66E1D2208C100BE68E4 /* SDLV1ProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2739701D1EE74D00631207 /* SDLV1ProtocolMessage.swift */; };
-		DA38E66F1D2208C500BE68E4 /* SDLV2ProtocolMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2739721D1EE8A000631207 /* SDLV2ProtocolMessage.swift */; };
 		DA38E6711D2235EF00BE68E4 /* SDLDataPriorityObjectSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38E6701D2235EF00BE68E4 /* SDLDataPriorityObjectSpec.swift */; };
 		DA5857D11D2EB4CE00A36D77 /* SDLProtocolMessageDisassemblerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5857D01D2EB4CE00A36D77 /* SDLProtocolMessageDisassemblerSpec.swift */; };
 		DA5857D31D2EB4DF00A36D77 /* SDLProtocolMessageDisassembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5857D21D2EB4DF00A36D77 /* SDLProtocolMessageDisassembler.swift */; };
@@ -118,8 +114,6 @@
 
 /* Begin PBXFileReference section */
 		DA27396E1D1EDBF800631207 /* SDLGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLGlobals.swift; sourceTree = "<group>"; };
-		DA2739701D1EE74D00631207 /* SDLV1ProtocolMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLV1ProtocolMessage.swift; sourceTree = "<group>"; };
-		DA2739721D1EE8A000631207 /* SDLV2ProtocolMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLV2ProtocolMessage.swift; sourceTree = "<group>"; };
 		DA2D6ED81D13D71E00AF0A44 /* SDLTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLTransport.swift; sourceTree = "<group>"; };
 		DA2D6EDA1D13DE9700AF0A44 /* SDLProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLProxy.swift; sourceTree = "<group>"; };
 		DA2D6EDC1D13E06300AF0A44 /* SDLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLProtocol.swift; sourceTree = "<group>"; };
@@ -304,8 +298,6 @@
 				DAC028121D1FA84000210EF7 /* SDLProtocolMessageRouter.swift */,
 				DAC304091D1E729300DE641B /* SDLProtocolHeader.swift */,
 				DAC304071D1E715D00DE641B /* SDLProtocolMessage.swift */,
-				DA2739701D1EE74D00631207 /* SDLV1ProtocolMessage.swift */,
-				DA2739721D1EE8A000631207 /* SDLV2ProtocolMessage.swift */,
 				DAB4AACC1D138F2100837510 /* SDLTCPTransport.swift */,
 				DAB4AAD01D13913A00837510 /* SDLTransportDelegate.swift */,
 				DA2D6ED81D13D71E00AF0A44 /* SDLTransport.swift */,
@@ -491,7 +483,6 @@
 				DA38E6691D22089200BE68E4 /* SDLProtocolHeader.swift in Sources */,
 				DA67851B1D27804500006E04 /* SDLProtocolMessageAssembler.swift in Sources */,
 				DA5857D41D2EB8E300A36D77 /* SDLProtocolMessageDisassembler.swift in Sources */,
-				DA38E66F1D2208C500BE68E4 /* SDLV2ProtocolMessage.swift in Sources */,
 				DA38E6681D22088F00BE68E4 /* SDLTransport.swift in Sources */,
 				DA9A78331D343C2C0012CD88 /* SDLProtocolHeaderSpec.swift in Sources */,
 				DA38E6631D22048400BE68E4 /* SDLDataPriorityQueueSpec.swift in Sources */,
@@ -503,7 +494,6 @@
 				DA38E6711D2235EF00BE68E4 /* SDLDataPriorityObjectSpec.swift in Sources */,
 				DA38E66A1D22089500BE68E4 /* SDLProtocolMessage.swift in Sources */,
 				DA5857D11D2EB4CE00A36D77 /* SDLProtocolMessageDisassemblerSpec.swift in Sources */,
-				DA38E66E1D2208C100BE68E4 /* SDLV1ProtocolMessage.swift in Sources */,
 				DA67851D1D27807C00006E04 /* SDLProtocolMessageAssemblerSpec.swift in Sources */,
 				DA38E6641D22053C00BE68E4 /* SDLDataPriorityQueue.swift in Sources */,
 			);
@@ -516,7 +506,6 @@
 				DA5857D31D2EB4DF00A36D77 /* SDLProtocolMessageDisassembler.swift in Sources */,
 				DA2D6EDB1D13DE9700AF0A44 /* SDLProxy.swift in Sources */,
 				DA2D6EDD1D13E06300AF0A44 /* SDLProtocol.swift in Sources */,
-				DA2739731D1EE8A000631207 /* SDLV2ProtocolMessage.swift in Sources */,
 				DAC028131D1FA84000210EF7 /* SDLProtocolMessageRouter.swift in Sources */,
 				DAB4AA4D1D1369DD00837510 /* SDLHexUtility.swift in Sources */,
 				DA5857D61D33085100A36D77 /* SDLExtensions.swift in Sources */,
@@ -529,7 +518,6 @@
 				DA5C461F1D223EC10080D190 /* SDLProtocolMessageAssembler.swift in Sources */,
 				DA2D6ED91D13D71E00AF0A44 /* SDLTransport.swift in Sources */,
 				DA27396F1D1EDBF800631207 /* SDLGlobals.swift in Sources */,
-				DA2739711D1EE74D00631207 /* SDLV1ProtocolMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

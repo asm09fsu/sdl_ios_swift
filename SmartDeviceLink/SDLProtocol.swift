@@ -72,9 +72,8 @@ public class SDLProtocol {
     
     public func startSession(for type: SDLServiceType) {
         let header = SDLProtocolHeader(type: type, sessionID: sdl_getSessionID(for: type))
-        if let message = SDLProtocolMessage.message(with: header)  {
-            send(data: message.data, for: type)
-        }
+        let message = SDLProtocolMessage(header: header)
+        send(data: message.data, for: type)
     }
     
     public func send(data: Data?, for service: SDLServiceType) {

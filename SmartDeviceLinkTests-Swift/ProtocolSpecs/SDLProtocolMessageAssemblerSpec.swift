@@ -35,7 +35,7 @@ class SDLProtocolMessageAssemblerSpec: QuickSpec {
                 
                 let firstPayload = Data(bytes: firstPayloadBytes)
                 
-                let testMessage = SDLV2ProtocolMessage(header: testHeader, payload: firstPayload)
+                let testMessage = SDLProtocolMessage(header: testHeader, payload: firstPayload)
                 
                 let interpreter = SDLProtocolMessageAssembler(sessionID: 0x16)
                 

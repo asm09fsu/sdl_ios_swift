@@ -36,7 +36,7 @@ class SDLProtocolMessageDisassemblerSpec : QuickSpec {
                 testHeader.sessionID = 0x84
                 testHeader.bytesInPayload = UInt32(payload.count)
                 
-                let testMessage = SDLV2ProtocolMessage(header: testHeader, payload: payload)
+                let testMessage = SDLProtocolMessage(header: testHeader, payload: payload)
                 
                 if let messages = SDLProtocolMessageDisassembler.disassemble(testMessage, limit: SDLGlobals.maxMTUSize) {
                     let payloadLength = 1012

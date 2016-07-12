@@ -43,16 +43,6 @@ public class SDLProtocolMessage {
         self.header = header
         self.payload = payload
     }
-    
-    public class func message(with header: SDLProtocolHeader, _ payload: Data? = nil) -> SDLProtocolMessage? {
-        if header.version == 1 {
-            return SDLV1ProtocolMessage(header: header, payload: payload)
-        } else if header.version >= 2 {
-            return SDLV2ProtocolMessage(header: header, payload: payload)
-        } else {
-            return nil
-        }
-    }
 }
 
 extension SDLProtocolMessage: CustomDebugStringConvertible {
